@@ -19,7 +19,7 @@ class DataProvider
             ['sirius', 'Sirius (distance)', 8.659, 'ly'],
             ['vega', 'Vega (distance)', 25, 'ly'],
             ['arcturus', 'Arcturus (distance)', 37, 'ly'],
-            ['capella', 'Arcturus (distance)', 43, 'ly'],
+            ['capella', 'Capella (distance)', 43, 'ly'],
             ['achernar', 'Achernar (distance)', 139, 'ly'],
             ['local-bubble', 'Local Bubble (diameter)', 300, 'ly'],
             ['canopus', 'Canopus (distance)', 310, 'ly'],
