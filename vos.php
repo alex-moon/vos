@@ -1,4 +1,3 @@
-#!/usr/local/bin/php
 <?php
 
 spl_autoload_register(
@@ -22,6 +21,6 @@ $app = new \Vos\Vos;
 try {
     $app->run($argv[1], $argv[2], $argv[3]);
 } catch (\Vos\VosException $e) {
-    echo "Error: " . $e->getMessage();
+    echo "Error: " . $e->getMessage() . "\n";
     usage($argv);
 }
