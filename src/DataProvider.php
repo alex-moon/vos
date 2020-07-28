@@ -3,8 +3,7 @@ namespace Vos;
 class DataProvider{
     public static function all(){
         return [
-            [
-                'ceres',
+            'ceres' => [
                 'Ceres',
                 [
                     ['diameter', 946, 'km'],
@@ -12,8 +11,7 @@ class DataProvider{
                     ['aphelion', 445.4e6, 'km'],
                 ],
             ],
-            [
-                'quaoar',
+            'quaoar' => [
                 '50000 Quaoar',
                 [
                     ['diameter', 1110, 'km'],
@@ -21,8 +19,7 @@ class DataProvider{
                     ['aphelion', 45.114, 'au'],
                 ],
             ],
-            [
-                'makemake',
+            'makemake' => [
                 'Makemake',
                 [
                     ['diameter', 1430, 'km'],
@@ -30,16 +27,15 @@ class DataProvider{
                     ['aphelion', 52.756, 'au'],
                 ],
             ],
-            [
-                "haumea",
+            "haumea" => [
                 "Haumea",
                 [
                     ["distance", 1632, "km"],
                     ["perihelion", 34.767, "au"],
                     ["aphelion", 51.598, "au"],
                 ],
-            ],[
-                "eris",
+            ],
+            "eris" => [
                 "Eris",
                 [
                     ["distance", 2326, "km"],
@@ -47,8 +43,7 @@ class DataProvider{
                     ["aphelion", 97.457, "au"],
                 ],
             ],
-            [
-                "pluto",
+            "pluto" => [
                 "Pluto",
                 [
                     ["distance", 2376.6, "km"],
@@ -56,8 +51,7 @@ class DataProvider{
                     ["aphelion", 49.305, "au"],
                 ],
             ],
-            [
-                "mercury",
+            "mercury" => [
                 "Mercury",
                 [
                     ["distance", 4879.4, "km"],
@@ -65,8 +59,7 @@ class DataProvider{
                     ["aphelion", 69816900, "km"],
                 ],
             ],
-            [
-                "mars",
+            "mars" => [
                 "Mars",
                 [
                     ["distance", 6779, "km"],
@@ -74,8 +67,7 @@ class DataProvider{
                     ["aphelion", 249200000, "km"],
                 ]
             ],
-            [
-                "venus",
+            "venus" => [
                 "Venus",
                 [
                     ["distance", 12104, "km"],
@@ -83,8 +75,7 @@ class DataProvider{
                     ["aphelion", 108939000, "km"],
                 ],
             ],
-            [
-                "earth",
+            "earth" => [
                 "Earth",
                 [
                     ["distance", 12742, "km"],
@@ -92,8 +83,7 @@ class DataProvider{
                     ["aphelion", 152100000, "km"],
                 ],
             ],
-            [
-                "neptune",
+            "neptune" => [
                 "Neptune",
                 [
                     ["distance", 49244, "km"],
@@ -101,8 +91,7 @@ class DataProvider{
                     ["aphelion", 30.33, "au"],
                 ],
             ],
-            [
-                "uranus",
+            "uranus" => [
                 "Uranus",
                 [
                     ["distance", 50724, "km"],
@@ -110,8 +99,7 @@ class DataProvider{
                     ["aphelion", 20.11, "au"],
                 ],
             ],
-            [
-                "saturn",
+            "saturn" => [
                 "Saturn",
                 [
                     ["distance", 116460, "km"],
@@ -119,8 +107,7 @@ class DataProvider{
                     ["aphelion", 10.1238, "au"],
                 ],
             ],
-            [
-                "jupiter",
+            "jupiter" => [
                 "Jupiter",
                 [
                     ["distance", 139820, "km"],
@@ -128,22 +115,19 @@ class DataProvider{
                     ["aphelion", 5.4588, "au"],
                 ],
             ],
-            [
-                "sun",
+            "sun" => [
                 "Sun",
                 [
                     ["distance", 1392700, "km"],
                 ],
             ],
-            [
-                "heliopause",
+            "heliopause" => [
                 "Heliopause",
                 [
                     ["distance", 180, "au"],
                 ],
             ],
-            [
-                "sedna",
+            "sedna" => [
                 "90377 Sedna",
                 [
                     ["distance", 995, "km"],
@@ -151,207 +135,178 @@ class DataProvider{
                     ["aphelion", 937, "au"],
                 ],
             ],
-            [
-                "proxima-centauri",
+            "proxima-centauri" => [
                 "Proxima Centauri",
                 [
                     ["diameter", 214550, "km"],
                     ["distance", 4.2441, "ly"],
                 ],
             ],
-            [
-                "alpha-centauri",
+            "alpha-centauri" => [
                 "Alpha Centauri",
                 [
                     ["distance", 4.365, "ly"],
                 ],
             ],
-            [
-                "sirius",
+            "sirius" => [
                 "Sirius",
                 [
                     ["distance", 8.659, "ly"],
                 ],
             ],
-            [
-                "vega",
+            "vega" => [
                 "Vega",
                 [
                     ["distance", 25, "ly"],
                 ],
             ],
-            [
-                "arcturus",
+            "arcturus" => [
                 "Arcturus",
                 [
                     ["distance", 37, "ly"],
                 ],
             ],
-            [
-                "capella",
+            "capella" => [
                 "Capella",
                 [
                     ["distance", 43, "ly"],
                 ],
             ],
-            [
-                "achernar",
+            "achernar" => [
                 "Achernar",
                 [
                     ["distance", 139, "ly"],
                 ],
             ],
-            [
-                "local-bubble",
+            "local-bubble" => [
                 "Local Bubble",
                 [
                     ["diameter", 300, "ly"],
                 ],
             ],
-            [
-                "canopus",
+            "canopus" => [
                 "Canopus",
                 [
                     ["distance", 310, "ly"],
                 ],
             ],
-            [
-                "betelgeuse",
+            "betelgeuse" => [
                 "Betelgeuse",
                 [
                     ["distance", 700, "ly"],
                 ],
             ],
-            [
-                "rigel",
+            "rigel" => [
                 "Rigel",
                 [
                     ["distance", 860, "ly"],
                 ],
             ],
-            [
-                "deneb",
+            "deneb" => [
                 "Deneb",
                 [
                     ["distance", 2615, "ly"],
                 ],
             ],
-            [
-                "orion-arm",
+            "orion-arm" => [
                 "Orion Arm",
                 [
                     ["width", 3500, "ly"],
                     ["length", 10000, "ly"],
                 ],
             ],
-            [
-                "canis-major",
+            "canis-major" => [
                 "Canis Major",
                 [
                     ["distance", 4892, "ly"],
                 ],
             ],
-            [
-                "eta-carinae",
+            "eta-carinae" => [
                 "Eta Carinae",
                 [
                     ["distance", 7502, "ly"],
                 ],
             ],
-            [
-                "sagdeg",
+            "sagdeg" => [
                 "Sagittarius Dwarf Elliptical Galaxy",
                 [
                     ["distance", 70000, "ly"],
                 ],
             ],
-            [
-                "milky-way",
+            "milky-way" => [
                 "Milky Way",
                 [
                     ["width", 105700, "ly"],
                 ],
             ],
-            [
-                "lmc",
+            "lmc" => [
                 "Large Magellanic Cloud",
                 [
                     ["distance", 179000, "ly"],
                 ],
             ],
-            [
-                "andromeda",
+            "andromeda" => [
                 "Andromeda Galaxy aka M31",
                 [
                     ["diameter", 67000, "pc"],
                     ["distance", 770000, "pc"],
                 ]
             ],
-            [
-                "local-group",
+            "local-group" => [
                 "Local Group",
                 [
                     ["diameter", 3, "mpc"],
                 ],
             ],
-            [
-                "virgo",
+            "virgo" => [
                 "Virgo Supercluster",
                 [
                     ["distance", 33, "mpc"],
                 ],
             ],
-            [
-                "ga",
+            "ga" => [
                 "Great Attractor",
                 [
                     ["distance", 63, "mpc"],
                 ],
             ],
-            [
-                "coma",
+            "coma" => [
                 "Coma Supercluster",
                 [
                     ["distance", 92, "mpc"],
                 ],
             ],
-            [
-                "laniakea",
+            "laniakea" => [
                 "Laniakea Supercluster",
                 [
                     ["distance", 160, "mpc"],
                 ],
             ],
-            [
-                "shapley",
+            "shapley" => [
                 "Shapley Supercluster",
                 [
                     ["distance", 200, "mpc"],
                 ],
             ],
-            [
-                "horologium",
+            "horologium" => [
                 "Horologium Supercluster",
                 [
                     ["distance", 291.4, "mpc"],
                 ],
             ],
-            [
-                "hcb",
+            "hcb" => [
                 "Hercules-Corona Borealis Great Wall",
                 [
                     ["distance", 3000, "mpc"],
                 ],
             ],
-            [
-                "icarus",
+            "icarus" => [
                 "Icarus",
                 [
                     ["distance", 4400, "mpc"],
                 ],
             ],
-            [
-                "universe",
+            "universe" => [
                 "Observable Universe",
                 [
                     ["distance", 28500, "mpc"],
