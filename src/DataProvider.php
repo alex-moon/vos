@@ -1,7 +1,11 @@
 <?php
+
 namespace Vos;
-class DataProvider{
-    public static function all(){
+
+class DataProvider
+{
+    public static function all()
+    {
         return [
             'ceres' => [
                 'Ceres',
