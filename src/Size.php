@@ -22,8 +22,8 @@ class Size
         self::UNIT_MPC,
     ];
 
-    private $value;
-    private $unit;
+    public $value;
+    public $unit;
 
     private function getConversions(string $unit)
     {
