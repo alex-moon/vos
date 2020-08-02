@@ -14,11 +14,19 @@ if (preg_match('~^/favicon.ico$~', $uri)) {
     return;
 }
 
+spl_autoload_register(
+    function ($className) {
+        require_once(str_replace('Vos\\', 'src/', $className) . '.php');
+    }
+);
+
 if (preg_match('~^/$~', $uri)) {
-    $p = 'assets/index.html';
-    $f = fopen($p, 'rb');
-    header('Content-type: text/html');
-    echo fread($f, filesize($p));
+    $vos = new \Vos\Vos;
+    $options = '';
+    foreach ($vos->get('sun-diameter', 1, 'm') as $option) {
+        $options .= sprintf('<option value="%s">%s</option>', $option->id, $option->name) . "\n";
+    }
+    require_once('assets/index.html');
     return;
 }
 
@@ -30,12 +38,6 @@ function respond($data, $success = true, $status = 200) {
         'data' => $data,
     ]);
 }
-
-spl_autoload_register(
-    function ($className) {
-        require_once(str_replace('Vos\\', 'src/', $className) . '.php');
-    }
-);
 
 $tokens = explode('/', $uri);
 

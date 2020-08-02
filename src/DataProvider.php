@@ -7,6 +7,26 @@ class DataProvider
     public static function all()
     {
         return [
+            "sun" => [
+                "Sun",
+                [
+                    ["diameter", 1392700, "km"],
+                ],
+            ],
+            "earth" => [
+                "Earth",
+                [
+                    ["distance", 12742, "km"],
+                    ["perihelion", 147095000, "km"],
+                    ["aphelion", 152100000, "km"],
+                ],
+            ],
+            "milky-way" => [
+                "Milky Way",
+                [
+                    ["width", 105700, "ly"],
+                ],
+            ],
             'ceres' => [
                 'Ceres',
                 [
@@ -79,14 +99,6 @@ class DataProvider
                     ["aphelion", 108939000, "km"],
                 ],
             ],
-            "earth" => [
-                "Earth",
-                [
-                    ["distance", 12742, "km"],
-                    ["perihelion", 147095000, "km"],
-                    ["aphelion", 152100000, "km"],
-                ],
-            ],
             "neptune" => [
                 "Neptune",
                 [
@@ -119,16 +131,10 @@ class DataProvider
                     ["aphelion", 5.4588, "au"],
                 ],
             ],
-            "sun" => [
-                "Sun",
-                [
-                    ["distance", 1392700, "km"],
-                ],
-            ],
             "heliopause" => [
                 "Heliopause",
                 [
-                    ["distance", 180, "au"],
+                    ["distance", 123, "au"],
                 ],
             ],
             "sedna" => [
@@ -235,12 +241,6 @@ class DataProvider
                 "Sagittarius Dwarf Elliptical Galaxy",
                 [
                     ["distance", 70000, "ly"],
-                ],
-            ],
-            "milky-way" => [
-                "Milky Way",
-                [
-                    ["width", 105700, "ly"],
                 ],
             ],
             "lmc" => [

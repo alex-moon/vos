@@ -40,13 +40,9 @@ class Vos
             foreach ($sizes as $i => $size) {
                 list($key, $value, $unit) = $size;
                 $size = new Size($value, $unit);
-                if ($i === 0) {
-                    $this->objects[$id] = new CelestialObject($id, $name, $size);
-                } else {
-                    $subId = $id . '-' . $key;
-                    $subName = $name . ' (' . $key . ')';
-                    $this->objects[$subId] = new CelestialObject($subId, $subName, $size);
-                }
+                $subId = $id . '-' . $key;
+                $subName = $name . ' (' . $key . ')';
+                $this->objects[$subId] = new CelestialObject($subId, $subName, $size);
             }
         }
 
