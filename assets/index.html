@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>vos: the Vastness of Space</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='/assets/styles.css' rel='stylesheet' />
+</head>
+<body>
+<div id="wrapper">
+    <div id="header">
+        <div class="header-first">
+            <h1>vos</h1>
+        </div>
+        <div class="header-second">
+            <span>an <a target="_blank" href="https://github.com/alex-moon/vos">Alex Moon</a> production</span>
+        </div>
+    </div>
+    <div id="content">
+        <form id="controls" onsubmit="window.vos.go(this); return false">
+            <label for="target">What if</label>
+            <select name="target" id="target">
+                <option value="sun">Sun</option>
+                <option value="earth">Earth</option>
+                <option value="earth-perihelion">Earth (perihelion)</option>
+                <option value="earth-aphelion">Earth (aphelion)</option>
+                <option value="ceres">Ceres</option>
+                <option value="ceres-perihelion">Ceres (perihelion)</option>
+                <option value="ceres-aphelion">Ceres (aphelion)</option>
+                <option value="quaoar">50000 Quaoar</option>
+                <option value="quaoar-perihelion">50000 Quaoar (perihelion)</option>
+                <option value="quaoar-aphelion">50000 Quaoar (aphelion)</option>
+                <option value="makemake">Makemake</option>
+                <option value="makemake-perihelion">Makemake (perihelion)</option>
+                <option value="makemake-aphelion">Makemake (aphelion)</option>
+                <option value="haumea">Haumea</option>
+                <option value="haumea-perihelion">Haumea (perihelion)</option>
+                <option value="haumea-aphelion">Haumea (aphelion)</option>
+                <option value="eris">Eris</option>
+                <option value="eris-perihelion">Eris (perihelion)</option>
+                <option value="eris-aphelion">Eris (aphelion)</option>
+                <option value="pluto">Pluto</option>
+                <option value="pluto-perihelion">Pluto (perihelion)</option>
+                <option value="pluto-aphelion">Pluto (aphelion)</option>
+                <option value="mercury">Mercury</option>
+                <option value="mercury-perihelion">Mercury (perihelion)</option>
+                <option value="mercury-aphelion">Mercury (aphelion)</option>
+                <option value="mars">Mars</option>
+                <option value="mars-perihelion">Mars (perihelion)</option>
+                <option value="mars-aphelion">Mars (aphelion)</option>
+                <option value="venus">Venus</option>
+                <option value="venus-perihelion">Venus (perihelion)</option>
+                <option value="venus-aphelion">Venus (aphelion)</option>
+                <option value="neptune">Neptune</option>
+                <option value="neptune-perihelion">Neptune (perihelion)</option>
+                <option value="neptune-aphelion">Neptune (aphelion)</option>
+                <option value="uranus">Uranus</option>
+                <option value="uranus-perihelion">Uranus (perihelion)</option>
+                <option value="uranus-aphelion">Uranus (aphelion)</option>
+                <option value="saturn">Saturn</option>
+                <option value="saturn-perihelion">Saturn (perihelion)</option>
+                <option value="saturn-aphelion">Saturn (aphelion)</option>
+                <option value="jupiter">Jupiter</option>
+                <option value="jupiter-perihelion">Jupiter (perihelion)</option>
+                <option value="jupiter-aphelion">Jupiter (aphelion)</option>
+                <option value="heliopause">Heliopause</option>
+                <option value="sedna">90377 Sedna</option>
+                <option value="sedna-perihelion">90377 Sedna (perihelion)</option>
+                <option value="sedna-aphelion">90377 Sedna (aphelion)</option>
+                <option value="proxima-centauri">Proxima Centauri</option>
+                <option value="proxima-centauri-distance">Proxima Centauri (distance)</option>
+                <option value="alpha-centauri">Alpha Centauri</option>
+                <option value="sirius">Sirius</option>
+                <option value="vega">Vega</option>
+                <option value="arcturus">Arcturus</option>
+                <option value="capella">Capella</option>
+                <option value="achernar">Achernar</option>
+                <option value="local-bubble">Local Bubble</option>
+                <option value="canopus">Canopus</option>
+                <option value="betelgeuse">Betelgeuse</option>
+                <option value="rigel">Rigel</option>
+                <option value="deneb">Deneb</option>
+                <option value="orion-arm">Orion Arm</option>
+                <option value="orion-arm-length">Orion Arm (length)</option>
+                <option value="canis-major">Canis Major</option>
+                <option value="eta-carinae">Eta Carinae</option>
+                <option value="sagdeg">Sagittarius Dwarf Elliptical Galaxy</option>
+                <option value="milky-way">Milky Way</option>
+                <option value="lmc">Large Magellanic Cloud</option>
+                <option value="andromeda">Andromeda Galaxy aka M31</option>
+                <option value="andromeda-distance">Andromeda Galaxy aka M31 (distance)</option>
+                <option value="local-group">Local Group</option>
+                <option value="virgo">Virgo Supercluster</option>
+                <option value="ga">Great Attractor</option>
+                <option value="coma">Coma Supercluster</option>
+                <option value="laniakea">Laniakea Supercluster</option>
+                <option value="shapley">Shapley Supercluster</option>
+                <option value="horologium">Horologium Supercluster</option>
+                <option value="hcb">Hercules-Corona Borealis Great Wall</option>
+                <option value="icarus">Icarus</option>
+                <option value="universe">Observable Universe</option>
+            </select>
+            <label for="value">were</label>
+            <div class="size">
+                <input type="text" id="value" name="value" value="1"/>
+                <select type="text" name="unit">
+                    <option value="mm">mm</option>
+                    <option value="m">m</option>
+                    <option value="km">km</option>
+                    <option value="au">au</option>
+                    <option value="ly">ly</option>
+                    <option value="pc">pc</option>
+                </select>
+            </div>
+            <button type="submit">Go...</button>
+        </form>
+        <div id="map"></div>
+    </div>
+</div>
+<script type="text/javascript" src="/assets/js/vos.js"></script>
+<script type="text/javascript" src="/assets/conf.js"></script>
+<script type="text/javascript" src="/assets/scripts.js"></script>
+</body>
+</html>

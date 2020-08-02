@@ -14,6 +14,14 @@ if (preg_match('~^/favicon.ico$~', $uri)) {
     return;
 }
 
+if (preg_match('~^/$~', $uri)) {
+    $p = 'assets/index.html';
+    $f = fopen($p, 'rb');
+    header('Content-type: text/html');
+    echo fread($f, filesize($p));
+    return;
+}
+
 function respond($data, $success = true, $status = 200) {
     header('Content-Type: application/json');
     http_response_code($status);

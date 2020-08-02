@@ -1,0 +1,3 @@
+window.conf = {
+    token: 'your mapbox token goes here :)',
+};
