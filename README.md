@@ -3,7 +3,7 @@ Vastness of Space
 
 For CLI:
 ```
-php vos.php sun 1 m
+php vos.php sun-diameter 1 m
 ```
 
 The output is a list of celestial objects and their respective sizes scaled
