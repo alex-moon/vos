@@ -4,9 +4,9 @@ namespace Vos;
 
 class CelestialObject
 {
-    private $id;
-    private $name;
-    private $size;
+    public $id;
+    public $name;
+    public $size;
 
     public function __construct(string $id, string $name, Size $size)
     {
@@ -20,16 +20,26 @@ class CelestialObject
         return $this->size;
     }
 
+    /**
+     * @param number $multiplier
+     * @return CelestialObject
+     * @throws VosException
+     */
     public function scaled($multiplier)
     {
-        $size = $this->size->scaled($multiplier);
+        $size = $this->size->scaled($multiplier)->toFriendly();
         return new self($this->id, $this->name, $size);
     }
 
+    /**
+     * @param int $width
+     * @return string
+     * @throws VosException
+     */
     public function pad($width)
     {
         $stringLeft = '[' . $this->id . '] ' . $this->name . " ";
-        $stringRight = " " . $this->size->toFriendly();
+        $stringRight = " " . $this->size;
         $stringLength = strlen($stringLeft) + strlen($stringRight);
         $pad = $width - $stringLength;
         if ($pad < 0) {
