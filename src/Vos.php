@@ -9,13 +9,14 @@ class Vos
 
     /**
      * @param string $target
+     * @param string $measure
      * @param string $targetValue
      * @param string $targetUnit
      * @throws VosException
      */
-    public function run(string $target, string $targetValue, string $targetUnit): void
+    public function run(string $target, string $measure, string $targetValue, string $targetUnit): void
     {
-        foreach ($this->get($target, $targetValue, $targetUnit) as $result) {
+        foreach ($this->get($target, $measure, $targetValue, $targetUnit) as $result) {
             echo $result->pad(100) . "\n";
         }
 
@@ -24,12 +25,13 @@ class Vos
 
     /**
      * @param string $target
+     * @param string $measure
      * @param string $targetValue
      * @param string $targetUnit
      * @return CelestialObject[]
      * @throws VosException
      */
-    public function get(string $target, string $targetValue, string $targetUnit): array
+    public function get(string $target, string $measure, string $targetValue, string $targetUnit): array
     {
         if (!($target && $targetValue && $targetUnit)) {
             throw new VosException("Missing target or value or unit");
@@ -37,22 +39,28 @@ class Vos
 
         foreach (DataProvider::all() as $id => $rawObject) {
             list($name, $sizes) = $rawObject;
-            foreach ($sizes as $i => $size) {
-                list($key, $value, $unit) = $size;
+            $objectSizes = [];
+            $subId = null;
+            $subName = null;
+            foreach ($sizes as $key => $size) {
+                list($value, $unit) = $size;
                 $size = new Size($value, $unit);
-                $subId = $id . '-' . $key;
-                $subName = $name . ' (' . $key . ')';
-                $this->objects[$subId] = new CelestialObject($subId, $subName, $size);
+                $objectSizes[$key] = $size;
             }
+            $this->objects[$id] = new CelestialObject($id, $name, $objectSizes);
         }
 
         if (!array_key_exists($target, $this->objects)) {
             throw new VosException("Invalid target: $target");
         }
-        $target = $this->objects[$target];
+        if (!in_array($measure, MeasureEnum::all())) {
+            throw new VosException("Invalid size key: $measure");
+        }
+        /** @var Size $targetSize */
+        $targetSize = $this->objects[$target]->$measure;
 
         $reference = new Size($targetValue, $targetUnit);
-        $referenceMultiplier = $target->getSize()->calculateReferenceMultiplier($reference);
+        $referenceMultiplier = $targetSize->calculateReferenceMultiplier($reference);
 
         $result = [];
         foreach ($this->objects as $object) {

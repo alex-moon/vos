@@ -19,20 +19,21 @@
         <form id="controls" onsubmit="window.vos.go(this); return false">
             <label for="target">What if</label>
             <select name="target" id="target">
-                <?php echo $options; ?>
+                <?php echo $targets; ?>
+            </select>
+            <select name="measure" id="measure">
+                <?php echo $measures; ?>
             </select>
             <label for="value">were</label>
-            <div class="size">
-                <input type="text" id="value" name="value" value="1"/>
-                <select type="text" name="unit">
-                    <option value="mm">mm</option>
-                    <option value="m">m</option>
-                    <option value="km">km</option>
-                    <option value="au">au</option>
-                    <option value="ly">ly</option>
-                    <option value="pc">pc</option>
-                </select>
-            </div>
+            <input type="text" id="value" name="value" value="1"/>
+            <select type="text" name="unit">
+                <option value="mm">mm</option>
+                <option value="m">m</option>
+                <option value="km">km</option>
+                <option value="au">au</option>
+                <option value="ly">ly</option>
+                <option value="pc">pc</option>
+            </select>
             <button type="submit">Go...</button>
         </form>
         <div id="map"></div>

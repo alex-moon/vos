@@ -6,6 +6,7 @@ Object.assign(Vos.prototype, {
         return [
             '',
             form.elements.target.value,
+            form.elements.measure.value,
             form.elements.value.value,
             form.elements.unit.value
         ].join('/');
