@@ -6,18 +6,30 @@ class CelestialObject
 {
     public $id;
     public $name;
-    public $size;
 
-    public function __construct(string $id, string $name, Size $size)
+    public $width;
+    public $length;
+
+    public $distance;
+    public $aphelion;
+    public $perihelion;
+
+    /**
+     * @param string $id
+     * @param string $name
+     * @param Size[] $sizes
+     * @throws VosException
+     */
+    public function __construct(string $id, string $name, array $sizes)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->size = $size;
-    }
-
-    public function getSize(): Size
-    {
-        return $this->size;
+        foreach ($sizes as $key => $size) {
+            if (!in_array($key, MeasureEnum::all())) {
+                throw new VosException('Unrecognised size key: ' . $key);
+            }
+            $this->$key = $size;
+        }
     }
 
     /**
@@ -27,8 +39,13 @@ class CelestialObject
      */
     public function scaled($multiplier)
     {
-        $size = $this->size->scaled($multiplier)->toFriendly();
-        return new self($this->id, $this->name, $size);
+        $sizes = [];
+        foreach (MeasureEnum::all() as $key) {
+            if ($this->$key !== null) {
+                $sizes[$key] = $this->$key->scaled($multiplier)->toFriendly();
+            }
+        }
+        return new self($this->id, $this->name, $sizes);
     }
 
     /**
@@ -38,14 +55,20 @@ class CelestialObject
      */
     public function pad($width)
     {
-        $stringLeft = '[' . $this->id . '] ' . $this->name . " ";
-        $stringRight = " " . $this->size;
-        $stringLength = strlen($stringLeft) + strlen($stringRight);
-        $pad = $width - $stringLength;
-        if ($pad < 0) {
-            throw new VosException('Width must be larger than ' . $stringLength);
+        $strings = [];
+        foreach (MeasureEnum::all() as $measure) {
+            if ($this->$measure !== null) {
+                $stringLeft = '[' . $this->id . '.' . $measure . '] ' . $this->name . " (" . $measure . ") ";
+                $stringRight = " " . $this->$measure;
+                $stringLength = strlen($stringLeft) + strlen($stringRight);
+                $pad = $width - $stringLength;
+                if ($pad < 0) {
+                    throw new VosException('Width must be larger than ' . $stringLength);
+                }
+                $pad = str_pad('', $pad, '.');
+                $strings[] = $stringLeft . $pad . $stringRight;
+            }
         }
-        $pad = str_pad('', $pad, '.');
-        return $stringLeft . $pad . $stringRight;
+        return implode("\n", $strings);
     }
 }
