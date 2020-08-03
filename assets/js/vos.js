@@ -1,5 +1,7 @@
 function Vos(map) {
     this.map = map;
+    this.manager = new Manager();
+    this.view = new View(this.map, this.manager);
 }
 Object.assign(Vos.prototype, {
     getUrl(form) {
@@ -18,7 +20,8 @@ Object.assign(Vos.prototype, {
     },
 
     handleResponse(response) {
-        console.log('CUNT', response.data);
+        this.manager.load(response.data);
+        this.view.reload();
     },
 
     go(form) {
