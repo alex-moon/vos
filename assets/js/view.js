@@ -56,8 +56,6 @@ Object.assign(View.prototype, {
         return feature;
     },
     getDistanceGeometry(obj) {
-        const larger = obj.aphelion;
-        const smaller = obj.perihelion.isNull() ? obj.distance : obj.perihelion;
         const feature = this.getEmptyFeature(obj);
         if (obj.aphelion.isNull() && obj.perihelion.isNull()) {
             if (obj.distance.isNull()) {
