@@ -16,9 +16,9 @@ Object.assign(CelestialObject.prototype, {
             || this.perihelion.isHumanSized()
         ;
     },
-    getIfHumanSized(size) {
-        if (size) {
-            size = new Size(size);
+    getIfHumanSized(raw) {
+        if (raw) {
+            const size = new Size(raw.value, raw.unit);
             if (size.isHumanSized()) {
                 return size;
             }
