@@ -17,5 +17,11 @@ Object.assign(Size.prototype, {
     },
     isNull() {
         return this.unit === '';
+    },
+    valueInKilometers() {
+        if (this.unit === 'm') {
+            return this.value / 1000;
+        }
+        return this.value;
     }
 });
