@@ -1,4 +1,8 @@
-(function(window, mapboxgl) {
+(function(
+    window,
+    mapboxgl,
+    turf
+) {
     mapboxgl.accessToken = window.conf['token'];
     const map = new mapboxgl.Map({
         container: 'map',
@@ -6,5 +10,9 @@
         center: [-1.619675, 55.007126],
         zoom: 14,
     });
-    window.vos = new Vos(map);
-})(window, mapboxgl);
+    window.vos = new Vos(map, turf);
+})(
+    window,
+    mapboxgl,
+    turf
+);
