@@ -1,24 +1,17 @@
-function View(map, manager) {
+function View(map, manager, turf) {
     this.map = map;
     this.manager = manager;
+    this.turf = turf;
     this.map.on('load', this.init.bind(this));
 }
 Object.assign(View.prototype, {
     center: null,
+    bearing: null,
     init() {
         this.center = this.map.getCenter().wrap();
         this.map.addSource('data', {
             type: 'geojson',
-            data: {
-                "type": "FeatureCollection",
-                "features": [
-                    {
-                        "type": "Feature",
-                        "properties": {},
-                        "geometry": this.getCircle(new Size(10, 'm'), this.center),
-                    }
-                ]
-            },
+            data: this.getData(),
         });
         this.map.addLayer({
             id: 'data',
@@ -45,6 +38,14 @@ Object.assign(View.prototype, {
             }
         });
     },
+    setCenter(center) {
+        this.center = center;
+        this.reload();
+    },
+    setDestination(destination) {
+        this.bearing = this.turf.bearing(this.center, destination);
+        this.reload();
+    },
     reload() {
         this.map.getSource('data').setData(this.getData());
     },
@@ -63,7 +64,6 @@ Object.assign(View.prototype, {
                 }
             }
         }
-        console.log(data);
         return data;
     },
     getSizeGeometry(obj, distanceGeometry) {
@@ -101,33 +101,12 @@ Object.assign(View.prototype, {
     },
 
     getCircle(distance, center) {
-        const points = 64;
-
-        const coords = {
-            latitude: center.lat,
-            longitude: center.lng,
-        };
-
-        const km = distance.valueInKilometers();
-
-        const coordinates = [];
-        const distanceX = km / (111.320 * Math.cos(coords.latitude * Math.PI / 180));
-        const distanceY = km / 110.574;
-
-        let theta, x, y;
-        for (let i=0; i < points; i++) {
-            theta = (i / points) * (2 * Math.PI);
-            x = distanceX * Math.cos(theta);
-            y = distanceY * Math.sin(theta);
-
-            coordinates.push([coords.longitude + x, coords.latitude + y]);
-        }
-        coordinates.push(coordinates[0]);
-
-        return {
-            coordinates: [coordinates],
-            type: 'Polygon',
-        };
+        const circle = this.turf.circle(
+            [center.lng, center.lat],
+            distance.valueInKilometers()
+        );
+        console.log('got circle', circle.geometry);
+        return circle.geometry;
     },
 
     getOrbit(aphelion, perihelion, center) {

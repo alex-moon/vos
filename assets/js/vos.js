@@ -1,7 +1,9 @@
-function Vos(map) {
+function Vos(map, turf) {
+    this.turf = turf;
     this.map = map;
     this.manager = new Manager();
-    this.view = new View(this.map, this.manager);
+    this.view = new View(this.map, this.manager, turf);
+    this.handler = new Handler(this.map, this.view);
 }
 Object.assign(Vos.prototype, {
     getUrl(form) {
