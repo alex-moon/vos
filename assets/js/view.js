@@ -227,7 +227,11 @@ Object.assign(View.prototype, {
     },
 
     getOrbit(aphelion, perihelion, center) {
-        return this.getCircle(aphelion, center);
+        try {
+            return this.getOval(perihelion, aphelion, center);
+        } catch (e) {
+            console.log('failed to get orbit', aphelion.valueInKilometers(), perihelion.valueInKilometers(), center);
+        }
     },
 
     getOval(width, length, center) {
