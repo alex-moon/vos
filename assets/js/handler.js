@@ -13,7 +13,7 @@ Object.assign(Handler.prototype, {
     },
     keyHeld(event) {
         return event.originalEvent.altKey
-            || event.originalEvent.modKey
+            || event.originalEvent.metaKey
             || event.originalEvent.shiftKey
         ;
     }

@@ -6,50 +6,96 @@ function View(map, manager, turf) {
 }
 Object.assign(View.prototype, {
     center: null,
-    bearing: null,
+    bearing: 0,
     init() {
         this.center = this.map.getCenter().wrap();
-        this.map.addSource('data', {
-            type: 'geojson',
-            data: this.getData(),
-        });
-        this.map.addLayer({
-            id: 'data',
-            type: 'line',
-            source: 'data',
-            paint: {
-                'line-color': '#ffffff',
-                'line-opacity': 1
-            },
-        });
-        this.map.addLayer({
-            'id': 'data-labels',
-            'type': 'symbol',
-            'source': 'data',
-            'paint': {
-                'text-color': '#ffffff',
-            },
-            'layout': {
-                'text-field': ['get', 'name'],
-                'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
-                'text-radial-offset': 0.5,
-                'text-justify': 'auto',
-                'icon-image': ['concat', ['get', 'icon'], '-15']
+        this.map.loadImage(
+            '/assets/marker.png',
+            (error, image) => {
+                if (error) {
+                    throw error;
+                }
+
+                this.map.addImage('custom-marker', image);
+
+                this.map.addSource('sizes', {
+                    type: 'geojson',
+                    data: this.getSizes(),
+                });
+                this.map.addSource('distances', {
+                    type: 'geojson',
+                    data: this.getDistances(),
+                });
+                // this.map.addLayer({
+                //     id: 'distances',
+                //     type: 'line',
+                //     source: 'distances',
+                //     paint: {
+                //         'line-color': '#ffffff',
+                //         'line-opacity': 1,
+                //         'line-dasharray': [4, 4],
+                //     },
+                // });
+                this.map.addLayer({
+                    id: 'sizes-points',
+                    type: 'symbol',
+                    source: 'sizes',
+                    paint: {
+                        'text-color': 'white'
+                    },
+                    layout: {
+                        'icon-image': 'custom-marker',
+                        'text-field': ['get', 'name'],
+                        'text-offset': [0, 1],
+                        'text-anchor': 'top'
+                    },
+                });
+                this.map.addLayer({
+                    id: 'sizes-lines',
+                    type: 'line',
+                    source: 'sizes',
+                    paint: {
+                        'line-color': '#ffffff',
+                        'line-opacity': 1,
+                    },
+                });
             }
-        });
+        );
     },
     setCenter(center) {
         this.center = center;
         this.reload();
     },
     setDestination(destination) {
-        this.bearing = this.turf.bearing(this.center, destination);
+        this.bearing = this.turf.bearing(
+            this.pc(this.center),
+            this.pc(destination)
+        );
         this.reload();
     },
     reload() {
-        this.map.getSource('data').setData(this.getData());
+        this.map.getSource('sizes').setData(this.getSizes());
+        this.map.getSource('distances').setData(this.getDistances());
     },
-    getData() {
+    getSizes() {
+        const data = {
+            type: 'FeatureCollection',
+            features: [
+                this.getFeature(
+                    {name: 'Sun'},
+                    this.getPoint(this.center)
+                ),
+            ],
+        };
+        for (const obj of this.manager.all()) {
+            const sizeGeometry = this.getSizeGeometry(obj);
+            if (sizeGeometry !== null) {
+                data.features.push(this.getFeature(obj, sizeGeometry, 'size'));
+            }
+        }
+        return data;
+    },
+    getDistances() {
         const data = {
             type: 'FeatureCollection',
             features: [],
@@ -58,27 +104,35 @@ Object.assign(View.prototype, {
             const distanceGeometry = this.getDistanceGeometry(obj);
             if (distanceGeometry !== null) {
                 data.features.push(this.getFeature(obj, distanceGeometry, 'distance'));
-                const sizeGeometry = this.getSizeGeometry(obj, distanceGeometry);
-                if (sizeGeometry !== null) {
-                    data.features.push(this.getFeature(obj, sizeGeometry, 'size'));
-                }
             }
         }
         return data;
     },
-    getSizeGeometry(obj, distanceGeometry) {
-        const center = distanceGeometry.coordinates[0][0];
-        if (obj.length.isNull()) {
-            if (obj.width.isNull()) {
-                return null;
-            }
+    getSizeGeometry(obj) {
+        let center;
+        try {
+            center = this.getCenterLatLng(obj);
+        } catch (e) {
+            console.log('failed to translate', this.center, obj.distance.valueInKilometers(), this.bearing);
+            return null;
+        }
 
+        if (obj.length.isNull() && obj.width.isNull()) {
+            return this.getPoint(center);
+        }
+
+        if (obj.width.isZero()) {
+            return this.getPoint(center);
+        }
+
+        if (obj.length.isNull()) {
             return this.getCircle(obj.width, center);
         }
 
         return this.getOval(obj.width, obj.length, center);
     },
     getDistanceGeometry(obj) {
+        return null;
         const center = this.center;
         if (obj.aphelion.isNull() && obj.perihelion.isNull()) {
             if (obj.distance.isNull()) {
@@ -90,22 +144,44 @@ Object.assign(View.prototype, {
 
         return this.getOrbit(obj.aphelion, obj.perihelion, center);
     },
+    getCenterLatLng(obj) {
+        const distance = obj.aphelion.isNull()
+            ? obj.distance
+            : obj.aphelion
+        ;
+        console.log('translating', distance, obj);
+        const center = this.turf.destination(
+            this.pc(this.center),
+            distance.valueInKilometers(),
+            this.bearing
+        );
+        return this.ll(center.geometry.coordinates);
+    },
     getFeature(obj, geometry, label) {
+        const properties = {};
+
+        if (label !== 'distance') {
+            properties['name'] = obj.name;
+        }
         return {
             type: 'Feature',
-            properties: {
-                name: obj.name + ' ' + label,
-            },
-            geometry: geometry,
+            geometry,
+            properties,
         };
     },
 
+    getPoint(center) {
+        const point = this.turf.point(
+            this.pc(center)
+        );
+        return point.geometry;
+    },
     getCircle(distance, center) {
+        console.log('getting circle', distance, center);
         const circle = this.turf.circle(
-            [center.lng, center.lat],
+            this.pc(center),
             distance.valueInKilometers()
         );
-        console.log('got circle', circle.geometry);
         return circle.geometry;
     },
 
@@ -114,6 +190,24 @@ Object.assign(View.prototype, {
     },
 
     getOval(width, length, center) {
-        return this.getCircle(width, center);
+        const oval = this.turf.ellipse(
+            this.pc(center),
+            width.valueInKilometers(),
+            length.valueInKilometers()
+        );
+        return oval.geometry;
+    },
+
+    pc(lngLat) {
+        return [
+            lngLat.lng,
+            lngLat.lat
+        ];
+    },
+    ll(coords) {
+        return {
+            lng: coords[0],
+            lat: coords[1],
+        };
     },
 });
