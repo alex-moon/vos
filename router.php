@@ -22,13 +22,30 @@ spl_autoload_register(
 
 if (preg_match('~^/$~', $uri)) {
     $vos = new \Vos\Vos;
+    $targetObjects = $vos->get('sun', 'width', 1, 'm');
+    usort($targetObjects, function($a, $b) {
+        if ($a->name == $b->name) {
+            return 0;
+        }
+        return ($a->name < $b->name) ? -1 : 1;
+    });
     $targets = '';
-    foreach ($vos->get('sun', 'width', 1, 'm') as $option) {
-        $targets .= sprintf('<option value="%s">%s</option>', $option->id, $option->name) . "\n";
+    foreach ($targetObjects as $option) {
+        $targets .= sprintf(
+            '<option value="%s"%s>%s</option>',
+            $option->id,
+            $option->id === 'sun' ? ' selected="selected"' : '',
+            $option->name
+        ) . "\n";
     }
     $measures = '';
     foreach (\Vos\MeasureEnum::all() as $measure) {
-        $measures .= sprintf('<option value="%s">%s</option>', $measure, $measure) . "\n";
+        $measures .= sprintf(
+            '<option value="%s"%s>%s</option>',
+            $measure,
+            $measure === 'm' ? ' selected="selected"' : '',
+            $measure
+        ) . "\n";
     }
     require_once('assets/index.html');
     return;
