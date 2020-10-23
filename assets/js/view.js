@@ -190,7 +190,6 @@ Object.assign(View.prototype, {
             ? obj.distance
             : obj.aphelion
         ;
-        console.log('translating', distance, obj);
         const center = this.turf.destination(
             this.pc(this.center),
             distance.valueInKilometers(),
@@ -218,7 +217,6 @@ Object.assign(View.prototype, {
         return point.geometry;
     },
     getCircle(distance, center) {
-        console.log('getting circle', distance, center);
         const circle = this.turf.circle(
             this.pc(center),
             distance.valueInKilometers()
@@ -231,6 +229,7 @@ Object.assign(View.prototype, {
             return this.getOval(perihelion, aphelion, center);
         } catch (e) {
             console.log('failed to get orbit', aphelion.valueInKilometers(), perihelion.valueInKilometers(), center);
+            return null;
         }
     },
 
@@ -238,7 +237,8 @@ Object.assign(View.prototype, {
         const oval = this.turf.ellipse(
             this.pc(center),
             width.valueInKilometers(),
-            length.valueInKilometers()
+            length.valueInKilometers(),
+            {angle: this.bearing}
         );
         return oval.geometry;
     },
