@@ -18,6 +18,10 @@ Object.assign(View.prototype, {
 
                 this.map.addImage('custom-marker', image);
 
+                this.map.addSource('centers', {
+                    type: 'geojson',
+                    data: this.getCenters(),
+                });
                 this.map.addSource('sizes', {
                     type: 'geojson',
                     data: this.getSizes(),
@@ -37,9 +41,9 @@ Object.assign(View.prototype, {
                     },
                 });
                 this.map.addLayer({
-                    id: 'sizes-points',
+                    id: 'centers',
                     type: 'symbol',
-                    source: 'sizes',
+                    source: 'centers',
                     paint: {
                         'text-color': 'white'
                     },
@@ -49,9 +53,13 @@ Object.assign(View.prototype, {
                         'text-offset': [0, 1],
                         'text-anchor': 'top'
                     },
+                    filter: [
+                        'all',
+                        ['==', ['geometry-type'], 'Point'],
+                    ],
                 });
                 this.map.addLayer({
-                    id: 'sizes-lines',
+                    id: 'sizes',
                     type: 'line',
                     source: 'sizes',
                     paint: {
@@ -74,18 +82,33 @@ Object.assign(View.prototype, {
         this.reload();
     },
     reload() {
+        this.map.getSource('centers').setData(this.getCenters());
         this.map.getSource('sizes').setData(this.getSizes());
         this.map.getSource('distances').setData(this.getDistances());
     },
-    getSizes() {
+    getCenters() {
         const data = {
             type: 'FeatureCollection',
             features: [
                 this.getFeature(
                     {name: 'Sun'},
-                    this.getPoint(this.center)
+                    this.getPoint(this.center),
+                    'center'
                 ),
             ],
+        };
+        for (const obj of this.manager.all()) {
+            const centerGeometry = this.getCenterGeometry(obj);
+            if (centerGeometry !== null) {
+                data.features.push(this.getFeature(obj, centerGeometry, 'center'));
+            }
+        }
+        return data;
+    },
+    getSizes() {
+        const data = {
+            type: 'FeatureCollection',
+            features: [],
         };
         for (const obj of this.manager.all()) {
             const sizeGeometry = this.getSizeGeometry(obj);
@@ -122,11 +145,11 @@ Object.assign(View.prototype, {
         }
 
         if (obj.length.isNull() && obj.width.isNull()) {
-            return this.getPoint(center);
+            return null;
         }
 
         if (obj.width.isZero()) {
-            return this.getPoint(center);
+            return null;
         }
 
         if (obj.length.isNull()) {
@@ -147,6 +170,21 @@ Object.assign(View.prototype, {
 
         return this.getOrbit(obj.aphelion, obj.perihelion, center);
     },
+    getCenterGeometry(obj) {
+        if (this.getDistanceGeometry(obj) === null) {
+            return null;
+        }
+
+        let center;
+        try {
+            center = this.getCenterLatLng(obj);
+        } catch (e) {
+            console.log('failed to translate', this.center, obj.distance.valueInKilometers(), this.bearing);
+            return null;
+        }
+
+        return this.getPoint(center);
+    },
     getCenterLatLng(obj) {
         const distance = obj.aphelion.isNull()
             ? obj.distance
@@ -163,7 +201,7 @@ Object.assign(View.prototype, {
     getFeature(obj, geometry, label) {
         const properties = {};
 
-        if (label !== 'distance') {
+        if (label === 'center') {
             properties['name'] = obj.name;
         }
         return {

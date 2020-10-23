@@ -24,6 +24,7 @@ class DataProvider
             'milky-way' => [
                 'Milky Way',
                 [
+                    // 'width' => [100000, 'ly'],
                     'width' => [52e3, 'pc'],
                     'length' => [61e3, 'pc'],
                     'distance' => [8e3, 'pc'],
@@ -199,8 +200,8 @@ class DataProvider
             'local-bubble' => [
                 'Local Bubble',
                 [
-                    'width' => [140, 'ly'],
-                    'distance' => [300, 'ly'],
+                    'width' => [300, 'ly'],
+                    'distance' => [140, 'ly'],
                 ],
             ],
             'canopus' => [
