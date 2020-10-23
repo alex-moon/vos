@@ -26,6 +26,7 @@ class DataProvider
                 [
                     'width' => [52e3, 'pc'],
                     'length' => [61e3, 'pc'],
+                    'distance' => [8e3, 'pc'],
                 ],
             ],
             'ceres' => [
@@ -141,7 +142,7 @@ class DataProvider
             'sedna' => [
                 '90377 Sedna',
                 [
-                    'distance' => [995, 'km'],
+                    'width' => [995, 'km'],
                     'perihelion' => [76.257, 'au'],
                     'aphelion' => [937, 'au'],
                 ],
@@ -184,6 +185,7 @@ class DataProvider
             'capella' => [
                 'Capella A',
                 [
+                    'width' => [17e6, 'km'],
                     'distance' => [42.919, 'ly'],
                 ],
             ],
@@ -197,12 +199,14 @@ class DataProvider
             'local-bubble' => [
                 'Local Bubble',
                 [
-                    'width' => [300, 'ly'],
+                    'width' => [140, 'ly'],
+                    'distance' => [300, 'ly'],
                 ],
             ],
             'canopus' => [
                 'Canopus',
                 [
+                    'width' => [98.789e6, 'km'],
                     'distance' => [310, 'ly'],
                 ],
             ],
