@@ -26,16 +26,16 @@ Object.assign(View.prototype, {
                     type: 'geojson',
                     data: this.getDistances(),
                 });
-                // this.map.addLayer({
-                //     id: 'distances',
-                //     type: 'line',
-                //     source: 'distances',
-                //     paint: {
-                //         'line-color': '#ffffff',
-                //         'line-opacity': 1,
-                //         'line-dasharray': [4, 4],
-                //     },
-                // });
+                this.map.addLayer({
+                    id: 'distances',
+                    type: 'line',
+                    source: 'distances',
+                    paint: {
+                        'line-color': '#ffffff',
+                        'line-opacity': 1,
+                        'line-dasharray': [4, 4],
+                    },
+                });
                 this.map.addLayer({
                     id: 'sizes-points',
                     type: 'symbol',
@@ -109,6 +109,10 @@ Object.assign(View.prototype, {
         return data;
     },
     getSizeGeometry(obj) {
+        if (this.getDistanceGeometry(obj) === null) {
+            return null;
+        }
+
         let center;
         try {
             center = this.getCenterLatLng(obj);
@@ -132,7 +136,6 @@ Object.assign(View.prototype, {
         return this.getOval(obj.width, obj.length, center);
     },
     getDistanceGeometry(obj) {
-        return null;
         const center = this.center;
         if (obj.aphelion.isNull() && obj.perihelion.isNull()) {
             if (obj.distance.isNull()) {
