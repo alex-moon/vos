@@ -132,7 +132,7 @@ Object.assign(View.prototype, {
         return data;
     },
     getSizeGeometry(obj) {
-        if (this.getDistanceGeometry(obj) === null) {
+        if (obj.distance.isNull() && obj.aphelion.isNull()) {
             return null;
         }
 
@@ -171,7 +171,7 @@ Object.assign(View.prototype, {
         return this.getOrbit(obj.aphelion, obj.perihelion, center);
     },
     getCenterGeometry(obj) {
-        if (this.getDistanceGeometry(obj) === null) {
+        if (obj.distance.isNull() && obj.aphelion.isNull()) {
             return null;
         }
 
@@ -228,7 +228,12 @@ Object.assign(View.prototype, {
         try {
             return this.getOval(perihelion, aphelion, center);
         } catch (e) {
-            console.log('failed to get orbit', aphelion.valueInKilometers(), perihelion.valueInKilometers(), center);
+            if (aphelion > 0) {
+                return this.getCircle(aphelion, center);
+            }
+            if (perihelion > 0) {
+                return this.getCircle(perihelion, center);
+            }
             return null;
         }
     },
