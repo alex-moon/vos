@@ -29,5 +29,10 @@ Object.assign(Size.prototype, {
             return this.value / 1000;
         }
         return this.value;
+    },
+    toString() {
+        return this.value.toFixed(2)
+            + ' '
+            + this.unit;
     }
 });

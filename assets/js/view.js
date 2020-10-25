@@ -48,16 +48,27 @@ Object.assign(View.prototype, {
                         'text-color': 'white'
                     },
                     layout: {
+                        'icon-allow-overlap': true,
                         'icon-image': 'custom-marker',
-                        'text-field': ['get', 'name'],
+                        'text-field': ['get', 'label'],
                         'text-offset': [0, 1],
                         'text-anchor': 'top'
                     },
-                    filter: [
-                        'all',
-                        ['==', ['geometry-type'], 'Point'],
-                    ],
                 });
+                // this.map.addLayer({
+                //     id: 'infos',
+                //     type: 'symbol',
+                //     source: 'centers',
+                //     paint: {
+                //         'text-color': 'white'
+                //     },
+                //     layout: {
+                //         'text-field': ['get', 'info'],
+                //         'text-size': 12,
+                //         'text-offset': [0, 3],
+                //         'text-anchor': 'top'
+                //     },
+                // });
                 this.map.addLayer({
                     id: 'sizes',
                     type: 'line',
@@ -67,6 +78,7 @@ Object.assign(View.prototype, {
                         'line-opacity': 1,
                     },
                 });
+                this.initPopups();
             }
         );
     },
@@ -197,17 +209,63 @@ Object.assign(View.prototype, {
         );
         return this.ll(center.geometry.coordinates);
     },
-    getFeature(obj, geometry, label) {
+    getFeature(obj, geometry, type) {
         const properties = {};
 
-        if (label === 'center') {
-            properties['name'] = obj.name;
+        if (type === 'center') {
+            properties['info'] = this.getInfo(obj);
+            properties['label'] = obj.name;
         }
         return {
             type: 'Feature',
             geometry,
             properties,
         };
+    },
+    getInfo(obj) {
+        let info = [];
+        if (obj.distance && !obj.distance.isNullOrZero()) {
+            info.push("distance: " + obj.distance.toString());
+        }
+        if (obj.aphelion && !obj.aphelion.isNullOrZero()) {
+            info.push("aphelion: " + obj.aphelion.toString());
+        }
+        if (obj.perihelion && !obj.perihelion.isNullOrZero()) {
+            info.push("perihelion: " + obj.perihelion.toString());
+        }
+        if (obj.width && !obj.width.isNullOrZero()) {
+            info.push("width: " + obj.width.toString());
+        }
+        if (obj.length && !obj.length.isNullOrZero()) {
+            info.push("length: " + obj.length.toString());
+        }
+        return info.join('<br>');
+    },
+    initPopups() {
+        const popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+        });
+
+        this.map.on('mouseenter', 'centers', (e) => {
+            const description = e.features[0].properties.info;
+            if (description) {
+                this.map.getCanvas().style.cursor = 'pointer';
+
+                let coordinates = e.features[0].geometry.coordinates.slice();
+
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                }
+
+                popup.setLngLat(coordinates).setHTML(description).addTo(this.map);
+            }
+        });
+
+        this.map.on('mouseleave', 'centers', () => {
+            this.map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
     },
 
     getPoint(center) {
