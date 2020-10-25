@@ -24,7 +24,7 @@ class DataProvider
             'milky-way' => [
                 'Milky Way',
                 [
-                    // 'width' => [100000, 'ly'],
+                    // 'width' => [46.2e3, 'pc'],
                     'width' => [52e3, 'pc'],
                     'length' => [61e3, 'pc'],
                     'distance' => [8e3, 'pc'],
@@ -39,7 +39,7 @@ class DataProvider
                 ],
             ],
             'quaoar' => [
-                '50000 Quaoar',
+                'Quaoar',
                 [
                     'width' => [1110, 'km'],
                     'perihelion' => [41.695, 'au'],
@@ -141,11 +141,23 @@ class DataProvider
                 ],
             ],
             'sedna' => [
-                '90377 Sedna',
+                'Sedna',
                 [
                     'width' => [995, 'km'],
                     'perihelion' => [76.257, 'au'],
                     'aphelion' => [937, 'au'],
+                ],
+            ],
+            'oort-inner' => [
+                'Oort Cloud (inner)',
+                [
+                    'distance' => [2000, 'au'],
+                ],
+            ],
+            'oort-outer' => [
+                'Oort Cloud (outer)',
+                [
+                    'distance' => [100000, 'au'],
                 ],
             ],
             'proxima-centauri' => [
@@ -190,6 +202,13 @@ class DataProvider
                     'distance' => [42.919, 'ly'],
                 ],
             ],
+            'aldebaran' => [
+                'Aldebaran',
+                [
+                    'width' => [61e6, 'km'],
+                    'distance' => [65.3, 'ly'],
+                ],
+            ],
             'achernar' => [
                 'Achernar',
                 [
@@ -211,6 +230,13 @@ class DataProvider
                     'distance' => [310, 'ly'],
                 ],
             ],
+            'pleiades' => [
+                'Pleiades (M45)',
+                [
+                    'width' => [3, 'pc'],
+                    'distance' => [136.2, 'pc'],
+                ]
+            ],
             'betelgeuse' => [
                 'Betelgeuse',
                 [
@@ -225,6 +251,20 @@ class DataProvider
                     'distance' => [860, 'ly'],
                 ],
             ],
+            'orion' => [
+                'Orion Nebula (M42)',
+                [
+                    'width' => [24, 'ly'],
+                    'distance' => [1344, 'ly'],
+                ]
+            ],
+            'omega' => [
+                'Omega Nebula (M17)',
+                [
+                    'width' => [22, 'ly'],
+                    'distance' => [5500, 'ly'],
+                ]
+            ],
             'deneb' => [
                 'Deneb',
                 [
@@ -232,11 +272,35 @@ class DataProvider
                     'distance' => [2615, 'ly'],
                 ],
             ],
+            'lagoon' => [
+                'Lagoon Nebula (M8)',
+                [
+                    'width' => [50, 'ly'],
+                    'length' => [110, 'ly'],
+                    'distance' => [4100, 'ly'],
+                ],
+            ],
+            'eagle' => [
+                'Eagle Nebula (M16)',
+                [
+                    'width' => [55, 'ly'],
+                    'length' => [70, 'ly'],
+                    'distance' => [5700, 'ly'],
+                ],
+            ],
+            'wild-duck' => [
+                'Wild Duck Cluster (M11)',
+                [
+                    'width' => [190, 'ly'],
+                    'distance' => [6120, 'ly'],
+                ],
+            ],
             'orion-arm' => [
                 'Orion Arm',
                 [
                     'width' => [3500, 'ly'],
                     'length' => [10000, 'ly'],
+                    'distance' => [2500, 'ly'],
                 ],
             ],
             'canis-major' => [
@@ -255,40 +319,70 @@ class DataProvider
             'sagdeg' => [
                 'Sagittarius Dwarf Elliptical Galaxy',
                 [
-                    'width' => [10000, 'ly'],
-                    'distance' => [70000, 'ly'],
+                    'width' => [10e3, 'ly'],
+                    'distance' => [70e3, 'ly'],
                 ],
             ],
             'lmc' => [
                 'Large Magellanic Cloud',
                 [
-                    'width' => [14000, 'ly'],
-                    'distance' => [179000, 'ly'],
+                    'width' => [14e3, 'ly'],
+                    'distance' => [179e3, 'ly'],
+                ],
+            ],
+            'smc' => [
+                'Small Magellanic Cloud',
+                [
+                    'width' => [7e3, 'ly'],
+                    'distance' => [201e3, 'ly'],
+                ],
+            ],
+            'wlm' => [
+                'Wolf-Lundmark-Melotte',
+                [
+                    'width' => [8000, 'ly'],
+                    'distance' => [3.4e6, 'ly'],
+                ],
+            ],
+            'triangulum' => [
+                'Triangulum Galaxy (M33)',
+                [
+                    'width' => [60e3, 'ly'],
+                    'distance' => [840e3, 'pc'],
                 ],
             ],
             'andromeda' => [
-                'Andromeda Galaxy aka M31',
+                'Andromeda Galaxy (M31)',
                 [
                     'width' => [67000, 'pc'],
-                    'distance' => [770000, 'pc'],
+                    'distance' => [770e3, 'pc'],
                 ],
             ],
             'local-group' => [
                 'Local Group',
                 [
                     'width' => [3, 'mpc'],
+                    'distance' => [2e6, 'ly'],
                 ],
             ],
-            'virgo' => [
+            'virgo-cluster' => [
+                'Virgo Cluster',
+                [
+                    'width' => [20e6, 'ly'],
+                    'distance' => [16.5, 'mpc'],
+                ],
+            ],
+            'virgo-supercluster' => [
                 'Virgo Supercluster',
                 [
                     'width' => [33, 'mpc'],
+                    'distance' => [65e6, 'ly'],
                 ],
             ],
             'ga' => [
                 'Great Attractor',
                 [
-                    'width' => [300e6, 'ly'],
+                    // 'width' => [300e6, 'ly'],
                     'distance' => [63, 'mpc'],
                 ],
             ],
@@ -303,17 +397,20 @@ class DataProvider
                 'Laniakea Supercluster',
                 [
                     'width' => [500e6, 'ly'],
+                    'distance' => [250e6, 'ly'],
                 ],
             ],
             'shapley' => [
                 'Shapley Supercluster',
                 [
+                    'width' => [200e6, 'ly'],
                     'distance' => [200, 'mpc'],
                 ],
             ],
             'horologium' => [
                 'Horologium Supercluster',
                 [
+                    'width' => [550e6, 'ly'],
                     'distance' => [291.4, 'mpc'],
                 ],
             ],
@@ -332,7 +429,8 @@ class DataProvider
             'universe' => [
                 'Observable Universe',
                 [
-                    'width' => [28500, 'mpc'],
+                    // 'width' => [28500, 'mpc'],
+                    'distance' => [14250, 'mpc'],
                 ],
             ],
         ];
