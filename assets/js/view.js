@@ -165,10 +165,10 @@ Object.assign(View.prototype, {
         }
 
         if (obj.length.isNull()) {
-            return this.getCircle(obj.width, center);
+            return this.getCircle(obj.width, center, true);
         }
 
-        return this.getOval(obj.width, obj.length, center);
+        return this.getOval(obj.width, obj.length, center, true);
     },
     getDistanceGeometry(obj) {
         const center = this.center;
@@ -274,33 +274,55 @@ Object.assign(View.prototype, {
         );
         return point.geometry;
     },
-    getCircle(distance, center) {
+    getCircle(distance, center, isSize) {
+        const radius = isSize
+            ? distance.valueInKilometers() / 2
+            : distance.valueInKilometers();
         const circle = this.turf.circle(
             this.pc(center),
-            distance.valueInKilometers()
+            radius
         );
         return circle.geometry;
     },
 
-    getOrbit(aphelion, perihelion, center) {
-        try {
-            return this.getOval(perihelion, aphelion, center);
-        } catch (e) {
-            if (aphelion > 0) {
-                return this.getCircle(aphelion, center);
-            }
-            if (perihelion > 0) {
-                return this.getCircle(perihelion, center);
-            }
-            return null;
+    getOrbit(aphelion, perihelion, focus) {
+        if (perihelion.isNullOrZero()) {
+            return this.getCircle(aphelion, center);
         }
+        if (aphelion.isNullOrZero()) {
+            return this.getCircle(perihelion, center);
+        }
+        const p = perihelion.valueInKilometers();
+        const a = aphelion.valueInKilometers();
+        const length = p + a;
+        const semiMajorAxis = length / 2;
+        const center = this.turf.destination(
+            this.pc(focus),
+            semiMajorAxis - p,
+            this.bearing
+        );
+
+        const semiMinorAxis = Math.sqrt(p * a);
+        const oval = this.turf.ellipse(
+            center.geometry.coordinates,
+            semiMinorAxis,
+            semiMajorAxis,
+            {angle: this.bearing}
+        );
+        return oval.geometry;
     },
 
-    getOval(width, length, center) {
+    getOval(width, length, center, isSize) {
+        const semiMinorAxis = isSize
+            ? width.valueInKilometers() / 2
+            : width.valueInKilometers();
+        const semiMajorAxis = isSize
+            ? length.valueInKilometers() / 2
+            : length.valueInKilometers();
         const oval = this.turf.ellipse(
             this.pc(center),
-            width.valueInKilometers(),
-            length.valueInKilometers(),
+            semiMinorAxis,
+            semiMajorAxis,
             {angle: this.bearing}
         );
         return oval.geometry;

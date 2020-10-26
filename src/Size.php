@@ -4,6 +4,7 @@ namespace Vos;
 
 class Size
 {
+    const UNIT_UM = 'um';
     const UNIT_MM = 'mm';
     const UNIT_M = 'm';
     const UNIT_KM = 'km';
@@ -13,6 +14,7 @@ class Size
     const UNIT_MPC = 'mpc';
 
     static $units = [
+        self::UNIT_UM,
         self::UNIT_MM,
         self::UNIT_M,
         self::UNIT_KM,
@@ -29,6 +31,7 @@ class Size
     {
         return [
             self::UNIT_MM => [
+                self::UNIT_UM => 1e-3,
                 self::UNIT_MM => 1,
                 self::UNIT_M => 1e3,
                 self::UNIT_KM => 1e6,
@@ -38,6 +41,7 @@ class Size
                 self::UNIT_MPC => 3.086e25,
             ],
             self::UNIT_M => [
+                self::UNIT_UM => 1e-6,
                 self::UNIT_MM => 1e-3,
                 self::UNIT_M => 1,
                 self::UNIT_KM => 1e3,
@@ -47,6 +51,7 @@ class Size
                 self::UNIT_MPC => 3.086e12,
             ],
             self::UNIT_KM => [
+                self::UNIT_UM => 1e-9,
                 self::UNIT_MM => 1e-6,
                 self::UNIT_M => 1e-3,
                 self::UNIT_KM => 1,
@@ -56,6 +61,7 @@ class Size
                 self::UNIT_MPC => 3.086e19,
             ],
             self::UNIT_AU => [
+                self::UNIT_UM => 6.68459e-18,
                 self::UNIT_MM => 6.68459e-15,
                 self::UNIT_M => 6.68459e-12,
                 self::UNIT_KM => 6.68459e-9,
@@ -65,6 +71,7 @@ class Size
                 self::UNIT_MPC => 2.06264e11,
             ],
             self::UNIT_LY => [
+                self::UNIT_UM => 1.057e-22,
                 self::UNIT_MM => 1.057e-19,
                 self::UNIT_M => 1.057e-16,
                 self::UNIT_KM => 1.057e-13,
@@ -74,6 +81,7 @@ class Size
                 self::UNIT_MPC => 3.26156e6,
             ],
             self::UNIT_PC => [
+                self::UNIT_UM => 3.24078e-23,
                 self::UNIT_MM => 3.24078e-20,
                 self::UNIT_M => 3.24078e-17,
                 self::UNIT_KM => 3.24078e-14,
@@ -83,6 +91,7 @@ class Size
                 self::UNIT_MPC => 1e6,
             ],
             self::UNIT_MPC => [
+                self::UNIT_UM => 3.24078e-29,
                 self::UNIT_MM => 3.24078e-26,
                 self::UNIT_M => 3.24078e-23,
                 self::UNIT_KM => 3.24078e-20,
