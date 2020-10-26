@@ -25,6 +25,9 @@ Object.assign(Size.prototype, {
         return this.isNull() || this.isZero();
     },
     valueInKilometers() {
+        if (this.unit === 'mm') {
+            return this.value / 1000000;
+        }
         if (this.unit === 'm') {
             return this.value / 1000;
         }
