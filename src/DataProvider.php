@@ -46,6 +46,14 @@ class DataProvider
                     'aphelion' => [45.114, 'au'],
                 ],
             ],
+            'gonggong' => [
+                'Gonggong',
+                [
+                    'width' => [1230, 'km'],
+                    'aphelion' => [101.238, 'au'],
+                    'perihelion' => [33.703, 'au'],
+                ]
+            ],
             'makemake' => [
                 'Makemake',
                 [
@@ -363,6 +371,42 @@ class DataProvider
                 [
                     'width' => [3, 'mpc'],
                     'distance' => [2e6, 'ly'],
+                ],
+            ],
+            'centaurus-a' => [
+                'Centaurus A',
+                [
+                    'width' => [97e3, 'ly'],
+                    'distance' => [4, 'mpc'],
+                ],
+            ],
+            'm81' => [
+                'Messier 81',
+                [
+                    'width' => [90e3, 'ly'],
+                    'distance' => [11.74e6, 'ly'],
+                ],
+            ],
+            'maffei' => [
+                'Maffei 1',
+                [
+                    'width' => [23e3, 'pc'],
+                    'distance' => [9.8e6, 'ly']
+                ]
+            ],
+            'm94' => [
+                'Messier 94',
+                [
+                    'width' => [14e3, 'pc'],
+                    'distance' => [4.9e6, 'pc'],
+                ]
+            ],
+            'ursa-major-' => [
+                'Ursa Major Cluster',
+                [
+                    'width' => [5.7e6, 'ly'],
+                    'length' => [16.8e6, 'ly'],
+                    'distance' => [18.6, 'mpc'],
                 ],
             ],
             'virgo-cluster' => [

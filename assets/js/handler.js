@@ -9,7 +9,6 @@ Object.assign(Handler.prototype, {
         if (this.keyHeld(event)) {
             this.view.setDestination(event.lngLat);
         } else {
-            console.log(event.lngLat);
             this.view.setCenter(event.lngLat);
         }
     },
