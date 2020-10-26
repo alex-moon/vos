@@ -1,8 +1,8 @@
 function CelestialObject(raw) {
     this.id = raw.id;
     this.name = raw.name;
-    this.width = this.getIfHumanSized(raw.width);
-    this.length = this.getIfHumanSized(raw.length);
+    this.width = this.getIfHumanSized(raw.width, true);
+    this.length = this.getIfHumanSized(raw.length, true);
     this.distance = this.getIfHumanSized(raw.distance);
     this.aphelion = this.getIfHumanSized(raw.aphelion);
     this.perihelion = this.getIfHumanSized(raw.perihelion);
@@ -16,10 +16,14 @@ Object.assign(CelestialObject.prototype, {
             || this.perihelion.isHumanSized()
         ;
     },
-    getIfHumanSized(raw) {
+    getIfHumanSized(raw, force) {
+        if (force === undefined) {
+            force = false;
+        }
+
         if (raw) {
             const size = new Size(raw.value, raw.unit);
-            if (size.isHumanSized()) {
+            if (size.isHumanSized() || force) {
                 return size;
             }
         }
