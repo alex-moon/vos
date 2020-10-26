@@ -6,7 +6,7 @@ function View(map, manager, turf) {
 }
 Object.assign(View.prototype, {
     center: null,
-    bearing: 0,
+    bearing: -7.113626699927894,
     init() {
         this.center = this.map.getCenter().wrap();
         this.map.loadImage(
