@@ -287,10 +287,10 @@ Object.assign(View.prototype, {
 
     getOrbit(aphelion, perihelion, focus) {
         if (perihelion.isNullOrZero()) {
-            return this.getCircle(aphelion, center);
+            return this.getCircle(aphelion, focus);
         }
         if (aphelion.isNullOrZero()) {
-            return this.getCircle(perihelion, center);
+            return this.getCircle(perihelion, focus);
         }
         const p = perihelion.valueInKilometers();
         const a = aphelion.valueInKilometers();
