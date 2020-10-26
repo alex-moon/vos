@@ -65,7 +65,7 @@ class DataProvider
             'haumea' => [
                 'Haumea',
                 [
-                    'distance' => [1632, 'km'],
+                    'width' => [1632, 'km'],
                     'perihelion' => [34.767, 'au'],
                     'aphelion' => [51.598, 'au'],
                 ],
@@ -73,7 +73,7 @@ class DataProvider
             'eris' => [
                 'Eris',
                 [
-                    'distance' => [2326, 'km'],
+                    'width' => [2326, 'km'],
                     'perihelion' => [38.271, 'au'],
                     'aphelion' => [97.457, 'au'],
                 ],
@@ -81,7 +81,7 @@ class DataProvider
             'pluto' => [
                 'Pluto',
                 [
-                    'distance' => [2376.6, 'km'],
+                    'width' => [2376.6, 'km'],
                     'perihelion' => [29.658, 'au'],
                     'aphelion' => [49.305, 'au'],
                 ],
@@ -89,7 +89,7 @@ class DataProvider
             'mercury' => [
                 'Mercury',
                 [
-                    'distance' => [4879.4, 'km'],
+                    'width' => [4879.4, 'km'],
                     'perihelion' => [46001200, 'km'],
                     'aphelion' => [69816900, 'km'],
                 ],
@@ -97,7 +97,7 @@ class DataProvider
             'mars' => [
                 'Mars',
                 [
-                    'distance' => [6779, 'km'],
+                    'width' => [6779, 'km'],
                     'perihelion' => [206700000, 'km'],
                     'aphelion' => [249200000, 'km'],
                 ]
@@ -105,7 +105,7 @@ class DataProvider
             'venus' => [
                 'Venus',
                 [
-                    'distance' => [12104, 'km'],
+                    'width' => [12104, 'km'],
                     'perihelion' => [107477000, 'km'],
                     'aphelion' => [108939000, 'km'],
                 ],
@@ -113,7 +113,7 @@ class DataProvider
             'neptune' => [
                 'Neptune',
                 [
-                    'distance' => [49244, 'km'],
+                    'width' => [49244, 'km'],
                     'perihelion' => [29.81, 'au'],
                     'aphelion' => [30.33, 'au'],
                 ],
@@ -121,7 +121,7 @@ class DataProvider
             'uranus' => [
                 'Uranus',
                 [
-                    'distance' => [50724, 'km'],
+                    'width' => [50724, 'km'],
                     'perihelion' => [18.33, 'au'],
                     'aphelion' => [20.11, 'au'],
                 ],
@@ -129,7 +129,7 @@ class DataProvider
             'saturn' => [
                 'Saturn',
                 [
-                    'distance' => [116460, 'km'],
+                    'width' => [116460, 'km'],
                     'perihelion' => [9.0412, 'au'],
                     'aphelion' => [10.1238, 'au'],
                 ],
@@ -137,7 +137,7 @@ class DataProvider
             'jupiter' => [
                 'Jupiter',
                 [
-                    'distance' => [139820, 'km'],
+                    'width' => [139820, 'km'],
                     'perihelion' => [4.9501, 'au'],
                     'aphelion' => [5.4588, 'au'],
                 ],
@@ -178,7 +178,7 @@ class DataProvider
             'alpha-centauri' => [
                 'Alpha Centauri',
                 [
-                    'width' => [214550, 'km'],
+                    'width' => [1702240, 'km'],
                     'distance' => [4.365, 'ly'],
                 ],
             ],
@@ -318,10 +318,11 @@ class DataProvider
                     'distance' => [4892, 'ly'],
                 ],
             ],
-            'eta-carinae' => [
-                'Eta Carinae',
+            'homunculus' => [
+                'Homunculus Nebula (Eta Carinae)',
                 [
-                    'distance' => [7502, 'ly'],
+                    'width' => [0.58, 'ly'],
+                    'distance' => [7500, 'ly'],
                 ],
             ],
             'sagdeg' => [
@@ -401,19 +402,26 @@ class DataProvider
                     'distance' => [4.9e6, 'pc'],
                 ]
             ],
-            'ursa-major-' => [
-                'Ursa Major Cluster',
+            'canes-ii' => [
+                'Canes II Group',
                 [
-                    'width' => [5.7e6, 'ly'],
-                    'length' => [16.8e6, 'ly'],
-                    'distance' => [18.6, 'mpc'],
-                ],
+                    'width' => [14e3, 'pc'],
+                    'distance' => [26.1e6, 'ly'],
+                ]
             ],
             'virgo-cluster' => [
                 'Virgo Cluster',
                 [
                     'width' => [20e6, 'ly'],
                     'distance' => [16.5, 'mpc'],
+                ],
+            ],
+            'ursa-major' => [
+                'Ursa Major Cluster',
+                [
+                    'width' => [5.7e6, 'ly'],
+                    'length' => [16.8e6, 'ly'],
+                    'distance' => [18.6, 'mpc'],
                 ],
             ],
             'virgo-supercluster' => [
