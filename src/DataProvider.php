@@ -441,7 +441,7 @@ class DataProvider
             'coma' => [
                 'Coma Supercluster',
                 [
-                    'width' => [20e6, 'ly'],
+                    'width' => [6, 'mpc'],
                     'distance' => [92, 'mpc'],
                 ],
             ],
@@ -466,16 +466,51 @@ class DataProvider
                     'distance' => [291.4, 'mpc'],
                 ],
             ],
+            'sloan' => [
+                'Sloan Great Wall',
+                [
+                    'width' => [1.37e9, 'ly'],
+                    'distance' => [1e9, 'ly'],
+                ]
+            ],
+            'huge-lqg' => [
+                'Huge-LQG',
+                [
+                    'width' => [1240, 'mpc'],
+                    'distance' => [9e9, 'ly'],
+                ],
+            ],
             'hcb' => [
                 'Hercules-Corona Borealis Great Wall',
                 [
-                    'distance' => [3000, 'mpc'],
+                    'length' => [3000, 'mpc'],
+                    'width' => [2200, 'mpc'],
+                    'distance' => [16e9, 'ly'],
+                ],
+            ],
+            'twin-quasar' => [
+                'Twin Quasar',
+                [
+                    'distance' => [2400, 'mpc'],
+                ],
+            ],
+            'cloverleaf' => [
+                'Cloverleaf Quasar',
+                [
+                    'distance' => [3370, 'mpc'],
                 ],
             ],
             'icarus' => [
                 'Icarus',
                 [
                     'distance' => [4400, 'mpc'],
+                ],
+            ],
+            'gn-z11' => [
+                'GN-z11',
+                [
+                    'width' => [4000, 'ly'],
+                    'distance' => [9800, 'mpc'],
                 ],
             ],
             'universe' => [
