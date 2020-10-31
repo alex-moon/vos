@@ -431,6 +431,20 @@ class DataProvider
                     'distance' => [65e6, 'ly'],
                 ],
             ],
+            'hydra-centaurus' => [
+                'Hydra-Centaurus Supercluster',
+                [
+                    'width' => [100e6, 'ly'],
+                    'distance' => [54, 'mpc'],
+                ],
+            ],
+            'pavo-indus' => [
+                'Pavo-Indus Supercluster',
+                [
+                    'width' => [66, 'mpc'],
+                    'distance' => [70, 'mpc'],
+                ],
+            ],
             'ga' => [
                 'Great Attractor',
                 [
@@ -452,6 +466,14 @@ class DataProvider
                     'distance' => [250e6, 'ly'],
                 ],
             ],
+            'pisces-cetus' => [
+                'Pisces-Cetus Supercluster Complex',
+                [
+                    'width' => [150e6, 'ly'],
+                    'length' => [1e9, 'ly'],
+                    'distance' => [700e6, 'ly'],
+                ],
+            ],
             'shapley' => [
                 'Shapley Supercluster',
                 [
@@ -469,7 +491,8 @@ class DataProvider
             'sloan' => [
                 'Sloan Great Wall',
                 [
-                    'width' => [1.37e9, 'ly'],
+                    'width' => [300e6, 'ly'],
+                    'length' => [1.37e9, 'ly'],
                     'distance' => [1e9, 'ly'],
                 ]
             ],
