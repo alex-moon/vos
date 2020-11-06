@@ -189,6 +189,13 @@ class DataProvider
                     'distance' => [8.611, 'ly'],
                 ],
             ],
+            'pollux' => [
+                'Pollux',
+                [
+                    'width' => [12.244e6, 'km'],
+                    'distance' => [33.72, 'ly'],
+                ],
+            ],
             'vega' => [
                 'Vega',
                 [
@@ -311,11 +318,18 @@ class DataProvider
                     'distance' => [2500, 'ly'],
                 ],
             ],
-            'canis-major' => [
-                'Canis Major',
+            'vy-canis-majoris' => [
+                'VY Canis Majoris',
                 [
                     'width' => [1.9758e9, 'km'],
-                    'distance' => [4892, 'ly'],
+                    'distance' => [3820, 'ly'],
+                ],
+            ],
+            'carina-nebula' => [
+                'Carina Nebula',
+                [
+                    'width' => [460, 'ly'],
+                    'distance' => [8500, 'ly'],
                 ],
             ],
             'homunculus' => [
@@ -358,6 +372,13 @@ class DataProvider
                 [
                     'width' => [60e3, 'ly'],
                     'distance' => [840e3, 'pc'],
+                ],
+            ],
+            'ngc300' => [
+                'NGC 300',
+                [
+                    'width' => [94e3, 'ly'],
+                    'distance' => [1.86e6, 'pc'],
                 ],
             ],
             'andromeda' => [

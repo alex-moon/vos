@@ -55,20 +55,21 @@ Object.assign(View.prototype, {
                         'text-anchor': 'top'
                     },
                 });
-                // this.map.addLayer({
-                //     id: 'infos',
-                //     type: 'symbol',
-                //     source: 'centers',
-                //     paint: {
-                //         'text-color': 'white'
-                //     },
-                //     layout: {
-                //         'text-field': ['get', 'info'],
-                //         'text-size': 12,
-                //         'text-offset': [0, 3],
-                //         'text-anchor': 'top'
-                //     },
-                // });
+                this.map.addLayer({
+                    id: 'infos',
+                    type: 'symbol',
+                    source: 'centers',
+                    paint: {
+                        'text-color': 'white'
+                    },
+                    layout: {
+                        'text-field': ['get', 'info'],
+                        'text-size': 12,
+                        'text-offset': [3, 0],
+                        'text-anchor': 'left',
+                        'text-justify': 'auto',
+                    },
+                });
                 this.map.addLayer({
                     id: 'sizes',
                     type: 'line',
@@ -239,7 +240,7 @@ Object.assign(View.prototype, {
         if (obj.length && !obj.length.isNullOrZero()) {
             info.push("length: " + obj.length.toString());
         }
-        return info.join('<br>');
+        return info.join("\n");
     },
     initPopups() {
         const popup = new mapboxgl.Popup({
