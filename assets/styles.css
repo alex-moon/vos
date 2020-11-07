@@ -33,6 +33,7 @@ a:active {
 }
 
 #header h1 {
+    cursor: pointer;
     background: url('/assets/logo.png');
     background-size: contain;
     width: 64px;
@@ -62,12 +63,15 @@ a:active {
 }
 
 @media only screen and (max-width: 600px) {
-    #content {
-        // flex-direction: column;
-    }
-
     #controls {
         display: none;
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 64px - 16px);
+        top: calc(64px + 16px);
+        z-index: 999999;
+        background: white;
+        // @todo animation?
     }
 }
 
