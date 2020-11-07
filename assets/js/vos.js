@@ -36,6 +36,15 @@ Object.assign(Vos.prototype, {
     goDefault() {
         this.fetch('/sun/width/1/m')
             .then(this.handleResponse.bind(this));
+    },
+
+    toggleControls() {
+        const element = document.getElementById('controls');
+        if (element.style.display === 'block') {
+            element.style.display = 'none';
+            return;
+        }
+        element.style.display = 'block';
     }
 });
 
