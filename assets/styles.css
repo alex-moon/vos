@@ -61,6 +61,16 @@ a:active {
     padding: 8px;
 }
 
+@media only screen and (max-width: 600px) {
+    #content {
+        // flex-direction: column;
+    }
+
+    #controls {
+        display: none;
+    }
+}
+
 #controls input,
 #controls select,
 #controls button {

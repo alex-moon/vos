@@ -49,6 +49,7 @@ Object.assign(View.prototype, {
                     },
                     layout: {
                         'icon-allow-overlap': true,
+                        'text-allow-overlap': true,
                         'icon-image': 'custom-marker',
                         'text-field': ['get', 'label'],
                         'text-offset': [0, 1],

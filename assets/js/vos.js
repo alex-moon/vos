@@ -4,6 +4,7 @@ function Vos(map, turf) {
     this.manager = new Manager();
     this.view = new View(this.map, this.manager, turf);
     this.handler = new Handler(this.map, this.view);
+    this.goDefault();
 }
 Object.assign(Vos.prototype, {
     getUrl(form) {
@@ -30,6 +31,11 @@ Object.assign(Vos.prototype, {
         this.fetch(this.getUrl(form))
             .then(this.handleResponse.bind(this))
         ;
+    },
+
+    goDefault() {
+        this.fetch('/sun/width/1/m')
+            .then(this.handleResponse.bind(this));
     }
 });
 
