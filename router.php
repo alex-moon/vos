@@ -43,7 +43,7 @@ if (preg_match('~^/$~', $uri)) {
         $measures .= sprintf(
             '<option value="%s"%s>%s</option>',
             $measure,
-            $measure === 'm' ? ' selected="selected"' : '',
+            $measure === 'width' ? ' selected="selected"' : '',
             $measure
         ) . "\n";
     }
