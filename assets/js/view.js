@@ -52,8 +52,8 @@ Object.assign(View.prototype, {
                         'text-allow-overlap': true,
                         'icon-image': 'custom-marker',
                         'text-field': ['get', 'label'],
-                        'text-offset': [0, 1],
-                        'text-anchor': 'top'
+                        'text-offset': [-1.5, 0],
+                        'text-anchor': 'right'
                     },
                 });
                 this.map.addLayer({
@@ -66,7 +66,7 @@ Object.assign(View.prototype, {
                     layout: {
                         'text-field': ['get', 'info'],
                         'text-size': 12,
-                        'text-offset': [3, 0],
+                        'text-offset': [2, 0],
                         'text-anchor': 'left',
                         'text-justify': 'auto',
                     },

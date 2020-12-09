@@ -46,13 +46,21 @@ class DataProvider
                     'aphelion' => [45.114, 'au'],
                 ],
             ],
-            'gonggong' => [
-                'Gonggong',
+            'arrokoth' => [
+                'Arrokoth',
                 [
-                    'width' => [1230, 'km'],
-                    'aphelion' => [101.238, 'au'],
-                    'perihelion' => [33.703, 'au'],
-                ]
+                    'width' => [19, 'km'],
+                    'perihelion' => [43.7, 'au'],
+                    'aphelion' => [46.4, 'au'],
+                ],
+            ],
+            'albion' => [
+                'Albion (QB1)',
+                [
+                    'width' => [137, 'km'],
+                    'perihelion' => [40.809, 'au'],
+                    'aphelion' => [47.042, 'au'],
+                ],
             ],
             'makemake' => [
                 'Makemake',
@@ -69,6 +77,14 @@ class DataProvider
                     'perihelion' => [34.767, 'au'],
                     'aphelion' => [51.598, 'au'],
                 ],
+            ],
+            'gonggong' => [
+                'Gonggong',
+                [
+                    'width' => [1230, 'km'],
+                    'aphelion' => [101.238, 'au'],
+                    'perihelion' => [33.703, 'au'],
+                ]
             ],
             'eris' => [
                 'Eris',
@@ -188,14 +204,35 @@ class DataProvider
                 ],
             ],
             'alpha-centauri' => [
-                'Alpha Centauri',
+                'Alpha Centauri A',
                 [
                     'width' => [1702240, 'km'],
                     'distance' => [4.365, 'ly'],
                 ],
             ],
+            'barnards-star' => [
+                "Barnard's Star",
+                [
+                    'width' => [272832, 'km'],
+                    'distance' => [5.9577, 'ly'],
+                ],
+            ],
+            'luhman-16' => [
+                'Luhman 16 A',
+                [
+                    'width' => [64900, 'km'],
+                    'distance' => [6.516, 'ly'],
+                ],
+            ],
+            'wolf-359' => [
+                'Wolf 359',
+                [
+                    'width' => [222720, 'km'],
+                    'distance' => [7.86, 'ly'],
+                ],
+            ],
             'sirius' => [
-                'Sirius',
+                'Sirius A',
                 [
                     'width' => [2.381e6, 'km'],
                     'distance' => [8.611, 'ly'],
