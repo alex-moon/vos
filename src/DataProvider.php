@@ -220,7 +220,7 @@ class DataProvider
             'luhman-16' => [
                 'Luhman 16 A',
                 [
-                    'width' => [64900, 'km'],
+                    'width' => [129800, 'km'],
                     'distance' => [6.516, 'ly'],
                 ],
             ],
