@@ -64,14 +64,22 @@ a:active {
 
 @media only screen and (max-width: 600px) {
     #controls {
-        display: none;
-        position: absolute;
+        /*position: absolute;*/
+        /*height: calc(100vh - 64px - 16px);*/
+        /*top: calc(64px + 16px);*/
+        /*z-index: 999999;*/
+        height: 100%;
         width: 100%;
-        height: calc(100vh - 64px - 16px);
-        top: calc(64px + 16px);
-        z-index: 999999;
         background: white;
-        // @todo animation?
+        display: none;
+    }
+
+    .controls-toggled #controls {
+        display: block;
+    }
+
+    .controls-toggled #map {
+        display: none;
     }
 }
 
@@ -94,6 +102,34 @@ a:active {
 #controls .size select {
     display: inline;
     width: 33%;
+}
+
+#presets h2 {
+    font-size: medium;
+    margin: 8px 0 0;
+}
+
+#presets button {
+    padding: 0 0 8px;
+}
+
+#presets button .name {
+    display: block;
+    padding: 2px;
+    margin: 2px;
+}
+
+#presets button .tokens {
+    display: block;
+}
+
+#presets button .tokens .token {
+    color: white;
+    background: #666;
+    font-size: smaller;
+    padding: 2px;
+    margin: 2px;
+    border-radius: 4px;
 }
 
 #map {

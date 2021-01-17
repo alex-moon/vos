@@ -11,14 +11,14 @@
 <div id="wrapper">
     <div id="header">
         <div class="header-first">
-            <h1 ontouch="window.vos.toggleControls(); return false;">vos</h1>
+            <h1 onclick="window.vos.toggleControls(); return false;">vos</h1>
         </div>
         <div class="header-second">
             <span>an <a target="_blank" href="https://github.com/alex-moon/vos">Alex Moon</a> production</span>
         </div>
     </div>
     <div id="content">
-        <form id="controls" onsubmit="window.vos.go(this); return false">
+        <form id="controls" onsubmit="window.vos.goForm(this); return false">
             <label for="target">What if</label>
             <select name="target" id="target">
                 <?php echo $targets; ?>
@@ -38,6 +38,9 @@
                 <option value="pc">pc</option>
             </select>
             <button type="submit">Go...</button>
+            <div id="presets">
+                <h2>Presets</h2>
+            </div>
         </form>
         <div id="map"></div>
     </div>

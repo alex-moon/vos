@@ -5,8 +5,40 @@ function Vos(map, turf) {
     this.view = new View(this.map, this.manager, turf);
     this.handler = new Handler(this.map, this.view);
     this.goDefault();
+    this.drawPresets();
 }
 Object.assign(Vos.prototype, {
+    controlsToggled: false,
+    presets: [
+        {
+            name: 'Walk #1: The Planets',
+            tokens: [
+                'sun',
+                'width',
+                '1',
+                'm',
+            ]
+        },
+        {
+            name: 'Walk #2: The Nearest Stars',
+            tokens: [
+                'quaoar',
+                'aphelion',
+                '0.485',
+                'm',
+            ]
+        },
+        {
+            name: 'Walk #3: The Milky Way',
+            tokens: [
+                'alpha-centauri',
+                'distance',
+                '0.297',
+                'm',
+            ]
+        },
+    ],
+
     getUrl(form) {
         return [
             '',
@@ -27,10 +59,23 @@ Object.assign(Vos.prototype, {
         this.view.reload();
     },
 
-    go(form) {
+    goForm(form) {
         this.fetch(this.getUrl(form))
             .then(this.handleResponse.bind(this))
         ;
+        if (this.controlsToggled) {
+            this.toggleControls();
+        }
+    },
+
+    goPreset(i) {
+        const tokens = this.presets[i].tokens;
+        const form = document.getElementById('controls');
+        form.elements.target.value = tokens[0];
+        form.elements.measure.value = tokens[1];
+        form.elements.value.value = tokens[2];
+        form.elements.unit.value = tokens[3];
+        this.goForm(form);
     },
 
     goDefault() {
@@ -39,12 +84,31 @@ Object.assign(Vos.prototype, {
     },
 
     toggleControls() {
-        const element = document.getElementById('controls');
-        if (element.style.display === 'block') {
-            element.style.display = 'none';
-            return;
+        const element = document.getElementById('content');
+        if (this.controlsToggled) {
+            element.classList.remove('controls-toggled');
+            this.controlsToggled = false;
+        } else {
+            element.classList.add('controls-toggled');
+            this.controlsToggled = true;
         }
-        element.style.display = 'block';
-    }
+    },
+
+    drawPresets() {
+        let innerHtml = '';
+        for (let i = 0; i < this.presets.length; i++) {
+            const preset = this.presets[i];
+            innerHtml += '<button class="preset" onclick="window.vos.goPreset(' + i + '); return false">'
+            innerHtml += '<span class="name">' + preset.name + '</span>';
+            innerHtml += '<span class="tokens">';
+            for (let token of preset.tokens) {
+                innerHtml += '<span class="token">' + token + '</span>';
+            }
+            innerHtml += '</span>';
+            innerHtml += '</button>';
+        }
+        const element = document.getElementById('presets');
+        element.innerHTML += innerHtml;
+    },
 });
 
