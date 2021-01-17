@@ -329,13 +329,13 @@ class DataProvider
                     'distance' => [5500, 'ly'],
                 ]
             ],
-            'deneb' => [
-                'Deneb',
-                [
-                    'width' => [282.45e6, 'km'],
-                    'distance' => [2615, 'ly'],
-                ],
-            ],
+//            'deneb' => [
+//                'Deneb',
+//                [
+//                    'width' => [282.45e6, 'km'],
+//                    'distance' => [2615, 'ly'],
+//                ],
+//            ],
             'lagoon' => [
                 'Lagoon Nebula (M8)',
                 [
@@ -381,13 +381,13 @@ class DataProvider
                     'distance' => [8500, 'ly'],
                 ],
             ],
-            'homunculus' => [
-                'Homunculus Nebula (Eta Carinae)',
-                [
-                    'width' => [0.58, 'ly'],
-                    'distance' => [7500, 'ly'],
-                ],
-            ],
+//            'homunculus' => [
+//                'Homunculus Nebula (Eta Carinae)',
+//                [
+//                    'width' => [0.58, 'ly'],
+//                    'distance' => [7500, 'ly'],
+//                ],
+//            ],
             'sagdeg' => [
                 'Sagittarius Dwarf Elliptical Galaxy',
                 [
