@@ -37,6 +37,14 @@ Object.assign(Vos.prototype, {
                 'm',
             ]
         },
+        {
+            name: 'Walk #4: The Nearest Clusters',
+            tokens: [
+                'sagdeg',
+                'distance',
+                '0.476',
+                'm',
+            ]
     ],
 
     getUrl(form) {
