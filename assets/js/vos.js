@@ -65,6 +65,7 @@ Object.assign(Vos.prototype, {
         ;
         if (this.controlsToggled) {
             this.toggleControls();
+            window.scrollTo(0, 0);
         }
     },
 
