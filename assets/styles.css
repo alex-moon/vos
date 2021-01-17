@@ -64,12 +64,9 @@ a:active {
 
 @media only screen and (max-width: 600px) {
     #controls {
-        /*position: absolute;*/
-        /*height: calc(100vh - 64px - 16px);*/
-        /*top: calc(64px + 16px);*/
-        /*z-index: 999999;*/
         height: 100%;
         width: 100%;
+        min-width: 100%;
         background: white;
         display: none;
     }
