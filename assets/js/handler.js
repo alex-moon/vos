@@ -10,7 +10,9 @@ function Handler(map, view) {
     this.map.on('touchstart', (e) => {
         if (e.originalEvent.touches.length <= 1) {
             mobileTimeout = setTimeout(
-                this.rightClick.bind(this),
+                () => {
+                    this.rightClick(e)
+                },
                 500
             );
         }
