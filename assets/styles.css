@@ -71,6 +71,18 @@ a:active {
         display: none;
     }
 
+    #controls input,
+    #controls select,
+    #controls button {
+        font-size: medium;
+        padding: 8px;
+        height: 3em;
+    }
+
+    #controls button.preset {
+        height: 4em;
+    }
+
     .controls-toggled #controls {
         display: block;
     }
