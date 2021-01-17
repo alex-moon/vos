@@ -5,16 +5,14 @@ function Handler(map, view) {
     this.map.on('click', this.click.bind(this));
     this.map.on('contextmenu', this.rightClick.bind(this));
 
+    // https://stackoverflow.com/questions/43459539/mapbox-gl-js-long-tap-press
     let mobileTimeout;
     let clearMobileTimeout = () => { clearTimeout(mobileTimeout); };
     this.map.on('touchstart', (e) => {
         if (e.originalEvent.touches.length <= 1) {
-            mobileTimeout = setTimeout(
-                () => {
-                    this.rightClick(e)
-                },
-                500
-            );
+            mobileTimeout = setTimeout(() => {
+                this.rightClick(e)
+            }, 500);
         }
     });
     this.map.on('touchend', clearMobileTimeout);
