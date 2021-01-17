@@ -45,6 +45,7 @@ Object.assign(Vos.prototype, {
                 '0.476',
                 'm',
             ]
+        },
     ],
 
     getUrl(form) {
