@@ -282,6 +282,7 @@ class DataProvider
                     'distance' => [139, 'ly'],
                 ],
             ],
+/*
             'local-bubble' => [
                 'Local Bubble',
                 [
@@ -289,6 +290,7 @@ class DataProvider
                     'distance' => [140, 'ly'],
                 ],
             ],
+*/
             'canopus' => [
                 'Canopus',
                 [
