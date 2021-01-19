@@ -259,6 +259,7 @@ class DataProvider
                     'distance' => [37, 'ly'],
                 ],
             ],
+/*
             'capella' => [
                 'Capella A',
                 [
@@ -266,6 +267,7 @@ class DataProvider
                     'distance' => [42.919, 'ly'],
                 ],
             ],
+*/
             'aldebaran' => [
                 'Aldebaran',
                 [
