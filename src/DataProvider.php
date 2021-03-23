@@ -427,11 +427,11 @@ class DataProvider
                     'distance' => [840e3, 'pc'],
                 ],
             ],
-            'ngc300' => [
-                'NGC 300',
+            'sculptor-group' => [
+                'Sculptor Group',
                 [
-                    'width' => [94e3, 'ly'],
-                    'distance' => [1.86e6, 'pc'],
+                    'width' => [2e6, 'pc'],
+                    'distance' => [3.9e6, 'pc'],
                 ],
             ],
             'andromeda' => [
