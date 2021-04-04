@@ -479,7 +479,7 @@ class DataProvider
             'canes-ii' => [
                 'Canes II Group',
                 [
-                    'width' => [14e3, 'pc'],
+                    'width' => [9e6, 'ly'],
                     'distance' => [26.1e6, 'ly'],
                 ]
             ],
