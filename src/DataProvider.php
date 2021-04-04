@@ -164,12 +164,14 @@ class DataProvider
                     'distance' => [123, 'au'],
                 ],
             ],
+            /*
             'scattered-disc-inner' => [
                 'Scattered Disc (inner)',
                 [
                     'distance' => [30, 'au'],
                 ],
             ],
+            */
             'scattered-disc-outer' => [
                 'Scattered Disc (outer)',
                 [
