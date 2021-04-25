@@ -525,7 +525,7 @@ class DataProvider
                 'Great Attractor',
                 [
                     // 'width' => [300e6, 'ly'],
-                    'distance' => [250e6, 'ly'],
+                    'distance' => [200e6, 'ly'],
                 ],
             ],
             'coma' => [
