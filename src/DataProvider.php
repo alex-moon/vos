@@ -457,13 +457,13 @@ class DataProvider
                     'distance' => [4, 'mpc'],
                 ],
             ],
-            'm81' => [
+            /* 'm81' => [
                 'Messier 81',
                 [
                     'width' => [90e3, 'ly'],
                     'distance' => [11.74e6, 'ly'],
                 ],
-            ],
+            ], */
             'maffei' => [
                 'Maffei 1',
                 [
