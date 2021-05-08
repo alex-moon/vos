@@ -564,6 +564,13 @@ class DataProvider
                     'distance' => [291.4, 'mpc'],
                 ],
             ],
+            'abell' => [
+                'Abell 2029',
+                [
+                    'width' => [8e6, 'ly'],
+                    'distance' => [315, 'mpc'],
+                ],
+            ],
             'sloan' => [
                 'Sloan Great Wall',
                 [
