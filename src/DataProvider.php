@@ -471,6 +471,13 @@ class DataProvider
                     'distance' => [9.8e6, 'ly']
                 ]
             ],
+            'ic342' => [
+                'IC 342',
+                [
+                    'width' => [75000, 'ly'],
+                    'distance' => [10.7e6, 'ly'],
+                ],
+            ],
             'm94' => [
                 'Messier 94',
                 [
