@@ -1,5 +1,88 @@
+#hero-banner {
+    width: 100%;
+    height: 50vh;
+    background-image: url('/assets/hero-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#hero-banner .wrapper {
+    width: 600px;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+}
+
+@media only screen and (max-width: 500px) {
+    #hero-banner .wrapper {
+        width: 100%;
+        margin: 0
+    }
+}
+
+#hero-banner .ctas {
+    position: absolute;
+    bottom: 16px;
+    right: 0;
+    display: flex;
+}
+
+#hero-banner .ctas .cta {
+    margin-left: 8px;
+}
+
+
+@media only screen and (max-width: 500px) {
+    #hero-banner .ctas {
+        width: calc(100% - 16px);
+    }
+}
+
 #content {
     width: 600px;
     margin: 0 auto;
     display: block;
+}
+
+@media only screen and (max-width: 500px) {
+    #content {
+        width: calc(100% - 32px);
+        margin: 0 16px;
+    }
+}
+
+.section {
+    display: flex;
+}
+
+.section .image {
+
+}
+
+.section .image img {
+    width: 100%;
+}
+
+.section .image.before {
+    margin-right: 16px;
+}
+
+.section .image.after {
+    margin-left: 16px;
+}
+
+.section .text p {
+    margin-top: 0;
+}
+
+@media only screen and (max-width: 500px) {
+    .section {
+        flex-direction: column;
+    }
+}
+
+a.back {
+    display: flex;
+    justify-content: flex-end;
 }

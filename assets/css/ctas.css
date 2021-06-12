@@ -1,0 +1,58 @@
+.cta {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: large;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: #000 0px 0px 16px 0px;
+}
+.cta:hover,
+.cta:focus {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.cta.red {
+    border: 1px solid #a12727;
+    background: #ff4a4a;
+    background: linear-gradient(to bottom, #ff4a4a, #992727);
+    text-shadow: #591717 1px 1px 1px;
+}
+.cta.red:hover,
+.cta.red:focus {
+    background: #ff5959;
+    background: linear-gradient(to bottom, #ff5959, #b62f2f);
+}
+.cta.red:active {
+    background: #982727;
+    background: linear-gradient(to bottom, #982727, #982727);
+}
+
+.cta.green {
+    border: 1px solid #81a170;
+    background: #88ff4c;
+    background: linear-gradient(to bottom, #88ff4c, #51992e);
+    text-shadow: #591717 1px 1px 1px;
+}
+.cta.green:hover,
+.cta.green:focus {
+    border: 1px solid #a8d192;
+    background: #a3ff5b;
+    background: linear-gradient(to bottom, #a3ff5b, #61b837);
+}
+.cta.green:active {
+    background: #52992e;
+    background: linear-gradient(to bottom, #52992e, #51992e);
+}
+
+.cta .material-icons.after {
+    margin-left: 8px;
+}
+.cta .material-icons.before {
+    margin-right: 8px;
+}
