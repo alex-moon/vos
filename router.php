@@ -20,55 +20,10 @@ spl_autoload_register(
     }
 );
 
-if (preg_match('~^/$~', $uri)) {
-    $vos = new \Vos\Vos;
-    $targetObjects = $vos->get('sun', 'width', 1, 'm');
-    usort($targetObjects, function($a, $b) {
-        if ($a->name == $b->name) {
-            return 0;
-        }
-        return ($a->name < $b->name) ? -1 : 1;
-    });
-    $targets = '';
-    foreach ($targetObjects as $option) {
-        $targets .= sprintf(
-            '<option value="%s"%s>%s</option>',
-            $option->id,
-            $option->id === 'sun' ? ' selected="selected"' : '',
-            $option->name
-        ) . "\n";
-    }
-    $measures = '';
-    foreach (\Vos\MeasureEnum::all() as $measure) {
-        $measures .= sprintf(
-            '<option value="%s"%s>%s</option>',
-            $measure,
-            $measure === 'width' ? ' selected="selected"' : '',
-            $measure
-        ) . "\n";
-    }
-    require_once('assets/index.html');
+$vos = new \Vos\Vos;
+if (preg_match('~^/get/~', $uri)) {
+    $vos->json($uri);
     return;
 }
 
-function respond($data, $success = true, $status = 200) {
-    header('Content-Type: application/json');
-    http_response_code($status);
-    echo json_encode([
-        'status' => $success,
-        'data' => $data,
-    ]);
-}
-
-$tokens = explode('/', $uri);
-
-if (count($tokens) < 4) {
-    respond(['error' => 'Usage: /[object]/[measure]/[value]/[unit] - e.g. /sun/width/1/m'], false, 400);
-} else {
-    $vos = new Vos\Vos;
-    try {
-        respond($vos->get($tokens[1], $tokens[2], $tokens[3], $tokens[4]));
-    } catch (\Vos\VosException $e) {
-        respond(['error' => $e->getMessage()], false, 500);
-    }
-}
+$vos->html($uri);
