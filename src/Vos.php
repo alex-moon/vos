@@ -69,4 +69,20 @@ class Vos
 
         return $result;
     }
+
+    /**
+     * @param $url
+     * @throws VosException
+     */
+    public function html($url): void
+    {
+        $controller = new HtmlController($this);
+        $controller->handle($url);
+    }
+
+    public function json($url): void
+    {
+        $controller = new JsonController($this);
+        $controller->handle($url);
+    }
 }
