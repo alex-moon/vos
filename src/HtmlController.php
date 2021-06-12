@@ -4,22 +4,35 @@ namespace Vos;
 
 class HtmlController extends Controller
 {
+    private $basePath = __DIR__ . '/../assets/html/';
+
     private function respond($template, $bindings)
     {
-        require_once(__DIR__ . '/../assets/html/' . $template . '.html');
+        if (empty($template)) {
+            $template = 'index';
+        }
+
+        $path = $this->basePath . $template . '.html';
+        if (!file_exists($path)) {
+            http_response_code(404);
+            require_once ($this->basePath . '404.html');
+            return;
+        }
+        require_once($path);
     }
 
     /**
-     * @param $url
+     * @param string $uri
      * @throws VosException
      */
     public function handle(string $uri): void
     {
         $tokens = explode('/', $uri);
-        if ($tokens[1] === 'app') {
+        $root = $tokens[1];
+        if ($root === 'app') {
             $this->app();
         }
-        $this->respond('index', [
+        $this->respond($root, [
             'url' => $uri,
         ]);
     }

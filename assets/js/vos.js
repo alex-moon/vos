@@ -51,6 +51,7 @@ Object.assign(Vos.prototype, {
     getUrl(form) {
         return [
             '',
+            'get',
             form.elements.target.value,
             form.elements.measure.value,
             form.elements.value.value,
@@ -88,7 +89,7 @@ Object.assign(Vos.prototype, {
     },
 
     goDefault() {
-        this.fetch('/sun/width/1/m')
+        this.fetch('/get/sun/width/1/m')
             .then(this.handleResponse.bind(this));
     },
 

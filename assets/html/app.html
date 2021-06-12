@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css" rel="stylesheet" />
-    <link href="/assets/styles.css" rel="stylesheet" />
+    <link href="/assets/css/styles.css" rel="stylesheet" />
 </head>
 <body>
 <div id="wrapper">
@@ -16,17 +16,17 @@
             </a>
         </div>
         <div class="header-second">
-            <span>an <a target="_blank" href="https://github.com/alex-moon/vos">Alex Moon</a> production</span>
+            <span><a target="_blank" href="https://github.com/alex-moon/vos">an Alex Moon production</a></span>
         </div>
     </div>
     <div id="content">
         <form id="controls" onsubmit="window.vos.goForm(this); return false">
             <label for="target">What if</label>
             <select name="target" id="target">
-                <?php echo $targets; ?>
+                <?= $bindings['targets']; ?>
             </select>
             <select name="measure" id="measure">
-                <?php echo $measures; ?>
+                <?= $bindings['measures']; ?>
             </select>
             <label for="value">were</label>
             <input type="text" id="value" name="value" value="1"/>
