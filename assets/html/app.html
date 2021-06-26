@@ -1,29 +1,4 @@
-<html>
-<head>
-    <title>vos: the Vastness of Space</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="/assets/css/styles.css" rel="stylesheet" />
-</head>
-<body>
-<div id="wrapper">
-    <div id="header">
-        <div class="header-first">
-            <a href="/">
-                <h1>vos</h1>
-            </a>
-            <a href="javascript:window.vos.toggleControls();">
-                <span class="material-icons">menu</span>
-            </a>
-        </div>
-        <div class="header-second">
-            <span><a target="_blank" href="https://github.com/alex-moon/vos">an Alex Moon production</a></span>
-        </div>
-    </div>
+<?php require_once('includes/app-header.html') ?>
     <div id="content">
         <form id="controls" onsubmit="window.vos.goForm(this); return false">
             <label for="target">What if</label>
@@ -51,14 +26,6 @@
         </form>
         <div id="map"></div>
     </div>
-</div>
-<script type="text/javascript" src="/assets/js/size.js"></script>
-<script type="text/javascript" src="/assets/js/celestial-object.js"></script>
-<script type="text/javascript" src="/assets/js/view.js"></script>
-<script type="text/javascript" src="/assets/js/manager.js"></script>
-<script type="text/javascript" src="/assets/js/handler.js"></script>
-<script type="text/javascript" src="/assets/js/vos.js"></script>
-<script type="text/javascript" src="/assets/conf.js"></script>
-<script type="text/javascript" src="/assets/scripts.js"></script>
-</body>
-</html>
+    <ul class="mfb-component--br mfb-slidein" data-mfb-toggle="click" data-mfb-state="closed">
+    </ul>
+<?php require_once('includes/app-footer.html') ?>
