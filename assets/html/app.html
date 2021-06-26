@@ -1,5 +1,14 @@
 <?php require_once('includes/header.html') ?>
     <div id="content">
+        <ul id="menu" class="mfb-component--br" data-mfb-toggle="click">
+            <li class="mfb-component__wrap">
+                <a href="javascript:window.vos.toggleControls();" class="mfb-component__button--main">
+                    <span class="mfb-component__main-icon--resting material-icons">menu</span>
+                    <span class="mfb-component__main-icon--active material-icons">close</span>
+                </a>
+            </li>
+        </ul>
+
         <form id="controls" onsubmit="window.vos.goForm(this); return false">
             <label for="target">What if</label>
             <select name="target" id="target">
@@ -26,6 +35,4 @@
         </form>
         <div id="map"></div>
     </div>
-    <ul class="mfb-component--br mfb-slidein" data-mfb-toggle="click" data-mfb-state="closed">
-    </ul>
 <?php require_once('includes/footer.html') ?>

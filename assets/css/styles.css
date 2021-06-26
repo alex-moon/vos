@@ -149,3 +149,22 @@ a:active {
     width: 100%;
     height: calc(100vh - 64px - 16px);
 }
+
+#menu {
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+    #menu {
+        display: block;
+    }
+}
+.mfb-component__button--main .material-icons {
+    font-size: 36px;
+    line-height: 56px;
+}
+#content.controls-toggled .mfb-component__main-icon--active {
+    opacity: 1;
+}
+#content.controls-toggled .mfb-component__main-icon--resting {
+    opacity: 0;
+}
