@@ -34,6 +34,7 @@ class HtmlController extends Controller
         }
         $this->respond($root, [
             'url' => $uri,
+            'app' => false,
         ]);
     }
 
@@ -70,6 +71,7 @@ class HtmlController extends Controller
         $this->respond('app', [
             'targets' => $targets,
             'measures' => $measures,
+            'app' => true,
         ]);
     }
 }
