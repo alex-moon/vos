@@ -39,7 +39,8 @@ class DataProvider
                 'Milky Way',
                 [
                     // 'width' => [46.2e3, 'pc'],
-                    'width' => [52e3, 'pc'],
+                    // 'width' => [52e3, 'pc'],
+                    'width' => [105700, 'ly'],
                     'length' => [61e3, 'pc'],
                     'distance' => [8e3, 'pc'],
                 ],
