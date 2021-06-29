@@ -21,6 +21,20 @@ class DataProvider
                     'aphelion' => [152100000, 'km'],
                 ],
             ],
+            'mu-cephei' => [
+                'Mu Cephei',
+                [
+                    'width' => [1.753e9, 'km'],
+                    'distance' => [2838, 'ly'],
+                ],
+            ],
+            'ic1396' => [
+                'IC 1396',
+                [
+                    'width' => [100, 'ly'],
+                    'distance' => [2400, 'ly'],
+                ],
+            ],
             'milky-way' => [
                 'Milky Way',
                 [
