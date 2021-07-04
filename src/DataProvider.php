@@ -117,6 +117,13 @@ class DataProvider
                     'aphelion' => [49.305, 'au'],
                 ],
             ],
+            'farfarout' => [
+                'FarFarOut (2018 AG37)',
+                [
+                    'width' => [400, 'km'],
+                    'distance' => [140, 'au'],
+                ],
+            ],
             'mercury' => [
                 'Mercury',
                 [
