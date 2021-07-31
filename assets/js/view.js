@@ -6,8 +6,8 @@ function View(map, manager, turf) {
 }
 Object.assign(View.prototype, {
     center: null,
-    // bearing: -7.113626699927894,
-    bearing: -144.150935,
+    bearing: -7.113626699927894, // Newcastle
+    // bearing: -144.150935, // Canberra
     init() {
         this.center = this.map.getCenter().wrap();
         this.map.loadImage(
@@ -65,7 +65,7 @@ Object.assign(View.prototype, {
                         'text-color': 'white'
                     },
                     layout: {
-                        'text-field': ['get', 'info'],
+                        'text-field': ['get', 'info_text'],
                         'text-size': 12,
                         'text-offset': [2, 0],
                         'text-anchor': 'left',
@@ -216,7 +216,8 @@ Object.assign(View.prototype, {
         const properties = {};
 
         if (type === 'center') {
-            properties['info'] = this.getInfo(obj);
+            properties['info_text'] = this.getInfo(obj);
+            properties['info_html'] = this.getInfo(obj, true);
             properties['label'] = obj.name;
         }
         return {
@@ -225,7 +226,7 @@ Object.assign(View.prototype, {
             properties,
         };
     },
-    getInfo(obj) {
+    getInfo(obj, html = false) {
         let info = [];
         if (obj.distance && !obj.distance.isNullOrZero()) {
             info.push("distance: " + obj.distance.toString());
@@ -242,7 +243,10 @@ Object.assign(View.prototype, {
         if (obj.length && !obj.length.isNullOrZero()) {
             info.push("length: " + obj.length.toString());
         }
-        return info.join("\n");
+        return html
+            ? "<span>" + info.join("<br />") + "</span>"
+            : info.join("\n")
+        ;
     },
     initPopups() {
         const popup = new mapboxgl.Popup({
@@ -251,8 +255,8 @@ Object.assign(View.prototype, {
         });
 
         this.map.on('mouseenter', 'centers', (e) => {
-            const description = e.features[0].properties.info;
-            if (description) {
+            const info_html = e.features[0].properties.info_html;
+            if (info_html) {
                 this.map.getCanvas().style.cursor = 'pointer';
 
                 let coordinates = e.features[0].geometry.coordinates.slice();
@@ -261,7 +265,7 @@ Object.assign(View.prototype, {
                     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                 }
 
-                popup.setLngLat(coordinates).setHTML(description).addTo(this.map);
+                popup.setLngLat(coordinates).setHTML(info_html).addTo(this.map);
             }
         });
 

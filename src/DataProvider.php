@@ -571,6 +571,20 @@ class DataProvider
                     'distance' => [250e6, 'ly'],
                 ],
             ],
+            'shapley' => [
+                'Shapley Supercluster',
+                [
+                    'width' => [200e6, 'ly'],
+                    'distance' => [200, 'mpc'],
+                ],
+            ],
+            'markarian-231' => [
+                'Markarian 231',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [581e6, 'ly'],
+                ],
+            ],
             'pisces-cetus' => [
                 'Pisces-Cetus Supercluster Complex',
                 [
@@ -579,13 +593,13 @@ class DataProvider
                     'distance' => [700e6, 'ly'],
                 ],
             ],
-            'shapley' => [
-                'Shapley Supercluster',
-                [
-                    'width' => [200e6, 'ly'],
-                    'distance' => [200, 'mpc'],
-                ],
-            ],
+//            'bootes' => [
+//                'Bootes Void',
+//                [
+//                    'width' => [330e6, 'ly'],
+//                    'distance' => [700e6, 'ly'],
+//                ],
+//            ],
             'horologium' => [
                 'Horologium Supercluster',
                 [
@@ -593,13 +607,20 @@ class DataProvider
                     'distance' => [291.4, 'mpc'],
                 ],
             ],
-            'abell' => [
-                'Abell 2029',
+            '3c-236' => [
+                '3C 236',
                 [
-                    'width' => [8e6, 'ly'],
-                    'distance' => [315, 'mpc'],
+                    'width' => [15e6, 'ly'],
+                    'distance' => [1.3e9, 'ly'],
                 ],
             ],
+//            'abell' => [
+//                'Abell 2029',
+//                [
+//                    'width' => [8e6, 'ly'],
+//                    'distance' => [315, 'mpc'],
+//                ],
+//            ],
             'sloan' => [
                 'Sloan Great Wall',
                 [
@@ -607,6 +628,27 @@ class DataProvider
                     'length' => [1.37e9, 'ly'],
                     'distance' => [1e9, 'ly'],
                 ]
+            ],
+            '3c-273' => [
+                '3C 273',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [2.5e9, 'ly'],
+                ],
+            ],
+            '3c-295' => [
+                '3C 295',
+                [
+                    'width' => [2e6, 'ly'],
+                    'distance' => [5.6e9, 'ly'],
+                ],
+            ],
+            '3c-147' => [
+                '3C 147',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [6.4e9, 'ly'],
+                ],
             ],
             'huge-lqg' => [
                 'Huge-LQG',

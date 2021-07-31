@@ -46,6 +46,15 @@ Object.assign(Vos.prototype, {
                 'm',
             ]
         },
+        {
+            name: 'Walk #5: The Observable Universe',
+            tokens: [
+                'pisces-cetus',
+                'distance',
+                '47.6',
+                'm',
+            ]
+        },
     ],
 
     getUrl(form) {
