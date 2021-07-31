@@ -629,11 +629,48 @@ class DataProvider
                     'distance' => [1e9, 'ly'],
                 ]
             ],
+            'giant-void' => [
+                'Giant Void',
+                [
+                    'width' => [400, 'mpc'],
+                    'distance' => [1.588e9, 'ly'],
+                ]
+            ],
+            'caelum' => [
+                'Caelum Supercluster',
+                [
+                    'width' => [910e6, 'ly'],
+                    'distance' => [1.855e9, 'ly'],
+                ]
+            ],
             '3c-273' => [
                 '3C 273',
                 [
                     'width' => [0.01, 'ly'],
                     'distance' => [2.5e9, 'ly'],
+                ],
+            ],
+            'tesch-engels' => [
+                'Tesch Engels LQG',
+                [
+                    'width' => [75, 'mpc'],
+                    'length' => [140, 'mpc'],
+                    'distance' => [3.563e9, 'ly'],
+                ]
+            ],
+            'saraswati' => [
+                'Saraswati Supercluster',
+                [
+                    'width' => [80, 'mpc'],
+                    'length' => [240, 'mpc'],
+                    'distance' => [1200, 'mpc'],
+                ],
+            ],
+            'webster' => [
+                'Webster LQG',
+                [
+                    'width' => [100, 'mpc'],
+                    'distance' => [4.763e9, 'ly'],
                 ],
             ],
             '3c-295' => [
@@ -643,17 +680,35 @@ class DataProvider
                     'distance' => [5.6e9, 'ly'],
                 ],
             ],
-            '3c-147' => [
-                '3C 147',
+            'boss' => [
+                'BOSS Great Wall',
                 [
-                    'width' => [0.01, 'ly'],
-                    'distance' => [6.4e9, 'ly'],
+                    'width' => [150, 'mpc'],
+                    'length' => [300, 'mpc'],
+                    'distance' => [5.897e9, 'ly'],
+                ],
+            ],
+            'giant-arc' => [
+                'Giant Arc',
+                [
+                    'width' => [2.5, 'mpc'],
+                    'length' => [3.3e9, 'ly'],
+                    'distance' => [9.2e9, 'ly'],
+                ],
+            ],
+            'grb-ring' => [
+                'GRB Ring',
+                [
+                    'width' => [720e6, 'ly'],
+                    'length' => [5.6e9, 'ly'],
+                    'distance' => [9.3e9, 'ly'],
                 ],
             ],
             'huge-lqg' => [
                 'Huge-LQG',
                 [
-                    'width' => [1240, 'mpc'],
+                    'width' => [1.6e9, 'ly'],
+                    'length' => [4e9, 'ly'],
                     'distance' => [9e9, 'ly'],
                 ],
             ],
@@ -663,6 +718,27 @@ class DataProvider
                     'length' => [3000, 'mpc'],
                     'width' => [2200, 'mpc'],
                     'distance' => [16e9, 'ly'],
+                ],
+            ],
+            '3c-9' => [
+                '3C 9',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [17.292e9, 'ly'],
+                ],
+            ],
+            'ton-618' => [
+                'TON 618',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [18.207e9, 'ly'],
+                ],
+            ],
+            'j0313–1806' => [
+                'J0313–1806',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [29.461e9, 'ly'],
                 ],
             ],
             'twin-quasar' => [

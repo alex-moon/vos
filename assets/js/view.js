@@ -320,6 +320,7 @@ Object.assign(View.prototype, {
     },
 
     getOval(width, length, center, isSize) {
+        const angle = this.bearing + 90;
         const semiMinorAxis = isSize
             ? width.valueInKilometers() / 2
             : width.valueInKilometers();
@@ -330,7 +331,7 @@ Object.assign(View.prototype, {
             this.pc(center),
             semiMinorAxis,
             semiMajorAxis,
-            {angle: this.bearing}
+            {angle}
         );
         return oval.geometry;
     },
