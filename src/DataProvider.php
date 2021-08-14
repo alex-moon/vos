@@ -329,19 +329,69 @@ class DataProvider
                     'distance' => [136.2, 'pc'],
                 ]
             ],
+            'bellatrix' => [
+                'Bellatrix',
+                [
+                    'width' => [8e6, 'km'],
+                    'distance' => [245, 'ly'],
+                ],
+            ],
             'betelgeuse' => [
                 'Betelgeuse',
                 [
                     'width' => [1.234e9, 'km'],
-                    'distance' => [700, 'ly'],
+                    'distance' => [548, 'ly'],
+                ],
+            ],
+            'saiph' => [
+                'Saiph',
+                [
+                    'width' => [3.0889e7, 'km'],
+                    'distance' => [650, 'ly'],
                 ],
             ],
             'rigel' => [
                 'Rigel',
                 [
-                    'width' => [110e6, 'km'],
-                    'distance' => [860, 'ly'],
+                    'width' => [1.09781e8, 'km'],
+                    'distance' => [1010, 'ly'],
                 ],
+            ],
+            'meissa' => [
+                'Meissa',
+                [
+                    'width' => [1.8645e7, 'km'],
+                    'distance' => [1109, 'ly'],
+                ],
+            ],
+            'mintaka' => [
+                'Mintaka',
+                [
+                    'width' => [2.296e7, 'km'],
+                    'distance' => [1239, 'ly'],
+                ],
+            ],
+            'alnitak' => [
+                'Alnitak',
+                [
+                    'width' => [2.783e7, 'km'],
+                    'distance' => [1262, 'ly'],
+                ],
+            ],
+            'alnilam' => [
+                'Alnilam',
+                [
+                    'width' => [4.5081e7, 'km'],
+                    'distance' => [1977, 'ly'],
+                ],
+            ],
+            'ic-434'=> [
+                'IC 434',
+                [
+                    'width' => [14, 'ly'],
+                    'length' => [40, 'ly'],
+                    'distance' => [1600, 'ly'],
+                ]
             ],
             'orion' => [
                 'Orion Nebula (M42)',
