@@ -329,19 +329,69 @@ class DataProvider
                     'distance' => [136.2, 'pc'],
                 ]
             ],
+            'bellatrix' => [
+                'Bellatrix',
+                [
+                    'width' => [8e6, 'km'],
+                    'distance' => [245, 'ly'],
+                ],
+            ],
             'betelgeuse' => [
                 'Betelgeuse',
                 [
                     'width' => [1.234e9, 'km'],
-                    'distance' => [700, 'ly'],
+                    'distance' => [548, 'ly'],
+                ],
+            ],
+            'saiph' => [
+                'Saiph',
+                [
+                    'width' => [3.0889e7, 'km'],
+                    'distance' => [650, 'ly'],
                 ],
             ],
             'rigel' => [
                 'Rigel',
                 [
-                    'width' => [110e6, 'km'],
-                    'distance' => [860, 'ly'],
+                    'width' => [1.09781e8, 'km'],
+                    'distance' => [1010, 'ly'],
                 ],
+            ],
+            'meissa' => [
+                'Meissa',
+                [
+                    'width' => [1.8645e7, 'km'],
+                    'distance' => [1109, 'ly'],
+                ],
+            ],
+            'mintaka' => [
+                'Mintaka',
+                [
+                    'width' => [2.296e7, 'km'],
+                    'distance' => [1239, 'ly'],
+                ],
+            ],
+            'alnitak' => [
+                'Alnitak',
+                [
+                    'width' => [2.783e7, 'km'],
+                    'distance' => [1262, 'ly'],
+                ],
+            ],
+            'alnilam' => [
+                'Alnilam',
+                [
+                    'width' => [4.5081e7, 'km'],
+                    'distance' => [1977, 'ly'],
+                ],
+            ],
+            'ic-434'=> [
+                'IC 434',
+                [
+                    'width' => [14, 'ly'],
+                    'length' => [40, 'ly'],
+                    'distance' => [1600, 'ly'],
+                ]
             ],
             'orion' => [
                 'Orion Nebula (M42)',
@@ -571,6 +621,20 @@ class DataProvider
                     'distance' => [250e6, 'ly'],
                 ],
             ],
+            'shapley' => [
+                'Shapley Supercluster',
+                [
+                    'width' => [200e6, 'ly'],
+                    'distance' => [200, 'mpc'],
+                ],
+            ],
+            'markarian-231' => [
+                'Markarian 231',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [581e6, 'ly'],
+                ],
+            ],
             'pisces-cetus' => [
                 'Pisces-Cetus Supercluster Complex',
                 [
@@ -579,13 +643,13 @@ class DataProvider
                     'distance' => [700e6, 'ly'],
                 ],
             ],
-            'shapley' => [
-                'Shapley Supercluster',
-                [
-                    'width' => [200e6, 'ly'],
-                    'distance' => [200, 'mpc'],
-                ],
-            ],
+//            'bootes' => [
+//                'Bootes Void',
+//                [
+//                    'width' => [330e6, 'ly'],
+//                    'distance' => [700e6, 'ly'],
+//                ],
+//            ],
             'horologium' => [
                 'Horologium Supercluster',
                 [
@@ -593,13 +657,20 @@ class DataProvider
                     'distance' => [291.4, 'mpc'],
                 ],
             ],
-            'abell' => [
-                'Abell 2029',
+            '3c-236' => [
+                '3C 236',
                 [
-                    'width' => [8e6, 'ly'],
-                    'distance' => [315, 'mpc'],
+                    'width' => [15e6, 'ly'],
+                    'distance' => [1.3e9, 'ly'],
                 ],
             ],
+//            'abell' => [
+//                'Abell 2029',
+//                [
+//                    'width' => [8e6, 'ly'],
+//                    'distance' => [315, 'mpc'],
+//                ],
+//            ],
             'sloan' => [
                 'Sloan Great Wall',
                 [
@@ -608,10 +679,86 @@ class DataProvider
                     'distance' => [1e9, 'ly'],
                 ]
             ],
+            'giant-void' => [
+                'Giant Void',
+                [
+                    'width' => [400, 'mpc'],
+                    'distance' => [1.588e9, 'ly'],
+                ]
+            ],
+            'caelum' => [
+                'Caelum Supercluster',
+                [
+                    'width' => [910e6, 'ly'],
+                    'distance' => [1.855e9, 'ly'],
+                ]
+            ],
+            '3c-273' => [
+                '3C 273',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [2.5e9, 'ly'],
+                ],
+            ],
+            'tesch-engels' => [
+                'Tesch Engels LQG',
+                [
+                    'width' => [75, 'mpc'],
+                    'length' => [140, 'mpc'],
+                    'distance' => [3.563e9, 'ly'],
+                ]
+            ],
+            'saraswati' => [
+                'Saraswati Supercluster',
+                [
+                    'width' => [80, 'mpc'],
+                    'length' => [240, 'mpc'],
+                    'distance' => [1200, 'mpc'],
+                ],
+            ],
+            'webster' => [
+                'Webster LQG',
+                [
+                    'width' => [100, 'mpc'],
+                    'distance' => [4.763e9, 'ly'],
+                ],
+            ],
+            '3c-295' => [
+                '3C 295',
+                [
+                    'width' => [2e6, 'ly'],
+                    'distance' => [5.6e9, 'ly'],
+                ],
+            ],
+            'boss' => [
+                'BOSS Great Wall',
+                [
+                    'width' => [150, 'mpc'],
+                    'length' => [300, 'mpc'],
+                    'distance' => [5.897e9, 'ly'],
+                ],
+            ],
+            'giant-arc' => [
+                'Giant Arc',
+                [
+                    'width' => [2.5, 'mpc'],
+                    'length' => [3.3e9, 'ly'],
+                    'distance' => [9.2e9, 'ly'],
+                ],
+            ],
+            'grb-ring' => [
+                'GRB Ring',
+                [
+                    'width' => [720e6, 'ly'],
+                    'length' => [5.6e9, 'ly'],
+                    'distance' => [9.3e9, 'ly'],
+                ],
+            ],
             'huge-lqg' => [
                 'Huge-LQG',
                 [
-                    'width' => [1240, 'mpc'],
+                    'width' => [1.6e9, 'ly'],
+                    'length' => [4e9, 'ly'],
                     'distance' => [9e9, 'ly'],
                 ],
             ],
@@ -621,6 +768,27 @@ class DataProvider
                     'length' => [3000, 'mpc'],
                     'width' => [2200, 'mpc'],
                     'distance' => [16e9, 'ly'],
+                ],
+            ],
+            '3c-9' => [
+                '3C 9',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [17.292e9, 'ly'],
+                ],
+            ],
+            'ton-618' => [
+                'TON 618',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [18.207e9, 'ly'],
+                ],
+            ],
+            'j0313–1806' => [
+                'J0313–1806',
+                [
+                    'width' => [0.01, 'ly'],
+                    'distance' => [29.461e9, 'ly'],
                 ],
             ],
             'twin-quasar' => [
