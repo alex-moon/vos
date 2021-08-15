@@ -1,6 +1,8 @@
 Vastness of Space
 =================
 
+See it in action: https://vos.ajmoon.uk
+
 For CLI:
 ```
 php vos.php sun-diameter 1 m
@@ -15,3 +17,4 @@ For Web:
 ```
 
 Then visit http://localhost:8000 in your browser. Have fun!
+
