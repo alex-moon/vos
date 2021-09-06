@@ -21,6 +21,13 @@ class DataProvider
                     'aphelion' => [152100000, 'km'],
                 ],
             ],
+            'swift-tuttle' => [
+                'Comet Swift-Tuttle',
+                [
+                    'width' => [100, 'km'],
+                    'distance' => [6.111e9, 'km'],
+                ],
+            ],
             'mu-cephei' => [
                 'Mu Cephei',
                 [
@@ -206,6 +213,12 @@ class DataProvider
                     'width' => [995, 'km'],
                     'perihelion' => [76.257, 'au'],
                     'aphelion' => [937, 'au'],
+                ],
+            ],
+            'lightyear' => [
+                '1 lightyear',
+                [
+                    'distance' => [1, 'ly'],
                 ],
             ],
             'oort-inner' => [
