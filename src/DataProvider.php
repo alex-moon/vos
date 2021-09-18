@@ -104,8 +104,8 @@ class DataProvider
                 'Gonggong',
                 [
                     'width' => [1230, 'km'],
-                    'aphelion' => [101.238, 'au'],
                     'perihelion' => [33.703, 'au'],
+                    'aphelion' => [101.238, 'au'],
                 ]
             ],
             'eris' => [
@@ -219,6 +219,22 @@ class DataProvider
                 '1 lightyear',
                 [
                     'distance' => [1, 'ly'],
+                ],
+            ],
+            'planet-nine-old' => [
+                'Planet Nine (2016)',
+                [
+                    'perihelion' => [280, 'au'],
+                    'aphelion' => [1120, 'au'],
+                    'width' => [50968, 'km'],
+                ],
+            ],
+            'planet-nine' => [
+                'Planet Nine (2021)',
+                [
+                    'perihelion' => [300, 'au'],
+                    'aphelion' => [460, 'au'],
+                    'width' => [25484, 'km'],
                 ],
             ],
             'oort-inner' => [
