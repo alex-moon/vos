@@ -128,7 +128,9 @@ class DataProvider
                 'FarFarOut (2018 AG37)',
                 [
                     'width' => [400, 'km'],
-                    'distance' => [140, 'au'],
+                    // 'distance' => [140, 'au'],
+                    'perihelion' => [27.6, 'au'],
+                    'aphelion' => [132.6, 'au'],
                 ],
             ],
             'mercury' => [
