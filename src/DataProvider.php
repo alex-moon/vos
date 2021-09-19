@@ -209,6 +209,22 @@ class DataProvider
                     'distance' => [110, 'au'],
                 ],
             ],
+            'biden' => [
+                '2012 VP113 ("Biden")',
+                [
+                    'width' => [650, 'km'],
+                    'perihelion' => [80.389, 'au'],
+                    'aphelion' => [436.143, 'au'],
+                ],
+            ],
+            'alicanto' => [
+                '2004 VN112 (Alicanto)',
+                [
+                    'width' => [314, 'km'],
+                    'perihelion' => [47.289, 'au'],
+                    'aphelion' => [618.32, 'au'],
+                ],
+            ],
             'sedna' => [
                 'Sedna',
                 [
