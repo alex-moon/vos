@@ -376,6 +376,13 @@ class DataProvider
                     'distance' => [136.2, 'pc'],
                 ]
             ],
+            'per-tau' => [
+                'Per-Tau Shell',
+                [
+                    'width' => [156, 'pc'],
+                    'distance' => [693, 'ly'],
+                ],
+            ],
             'bellatrix' => [
                 'Bellatrix',
                 [
