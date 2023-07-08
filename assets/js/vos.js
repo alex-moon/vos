@@ -51,7 +51,7 @@ Object.assign(Vos.prototype, {
             tokens: [
                 'pisces-cetus',
                 'distance',
-                '47.6',
+                '0.476',
                 'm',
             ]
         },

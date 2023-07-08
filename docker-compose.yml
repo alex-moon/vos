@@ -1,0 +1,10 @@
+version: "3"
+services:
+  vos:
+    volumes:
+      - .:/opt/vc
+    working_dir: /opt/vc
+    ports:
+      - "18002:8000"
+    image: php
+    command: php -S 0.0.0.0:8000 router.php
