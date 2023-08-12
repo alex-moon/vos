@@ -2,8 +2,8 @@ version: "3"
 services:
   vos:
     volumes:
-      - .:/opt/vc
-    working_dir: /opt/vc
+      - .:/opt/vos
+    working_dir: /opt/vos
     ports:
       - "18002:8000"
     image: php
